@@ -1,0 +1,131 @@
+🧭 🧱 1. CORE (BẮT BUỘC 100%)
+
+Đây là “xương sống” server:
+
+👤 Account system
+Register / Login
+password hash (bcrypt)
+save data MySQL
+💾 Player data
+tiền 💰
+skin
+level / exp
+vị trí spawn
+job hiện tại
+🔄 Session system
+login xong mới chơi
+auto load / auto save
+💰 2. ECONOMY SYSTEM (TIỀN TRONG GAME)
+💵 Cơ bản
+nhận tiền / trừ tiền
+paycheck (lương theo thời gian)
+🏦 Nâng cao
+bank system
+gửi tiền
+rút tiền
+ATM
+
+👉 Đây là thứ quyết định server sống hay chết
+
+👷 3. JOB SYSTEM (CỐT LÕI RP)
+
+Người chơi kiếm tiền bằng công việc:
+
+Job phổ biến:
+taxi 🚕
+bus driver 🚌
+delivery 📦
+garbage 🚛
+mining ⛏️
+Kiểu hoạt động:
+nhận job
+chạy nhiệm vụ
+nhận tiền
+🚗 4. VEHICLE SYSTEM
+mua xe
+spawn xe
+khóa xe 🔐
+fuel (xăng ⛽)
+garage
+
+👉 Không có cái này = server “chạy bộ simulator”
+
+🏠 5. HOUSING SYSTEM
+mua nhà 🏠
+vào nhà (teleport interior)
+khóa nhà
+storage đồ
+upgrade nhà
+👮 6. FACTION SYSTEM (TỔ CHỨC)
+Ví dụ:
+Police 🚓
+EMS 🚑
+Government
+Gang / Mafia 🔫
+Chức năng:
+rank system
+duty system (on/off duty)
+faction vehicles
+faction locker
+📱 7. SOCIAL SYSTEM
+phone system 📱
+gọi điện
+SMS
+chat IC / OOC
+radio (faction chat)
+🎒 8. INVENTORY SYSTEM
+item system
+weapon / food / tools
+storage trong:
+nhà
+xe
+tủ faction
+🧾 9. ADMIN SYSTEM
+admin rank
+ban / kick / warn
+spectate 👁️
+teleport
+spawn vehicle
+freeze player
+🧠 10. GAMEPLAY SYSTEM
+spawn system
+death system
+hospital respawn 🏥
+jail system 🚔
+hunger/thirst (optional RP xịn)
+🔐 11. SECURITY SYSTEM
+anti cheat
+anti crash
+log system
+MySQL protection
+🌍 12. DYNAMIC WORLD (SERVER XỊN)
+
+Server lớn thường có:
+
+dynamic objects (streamer)
+dynamic houses
+dynamic factions
+dynamic businesses 🏪
+🏪 13. BUSINESS SYSTEM (SERVER GIÀU)
+player mua shop
+bán đồ
+thu tiền theo giờ
+🧭 14. TOÀN BỘ SERVER RP = 6 MẢNH GHÉP
+1. Account system
+2. Economy (tiền)
+3. Jobs (kiếm tiền)
+4. Vehicles (xe)
+5. Houses (nhà)
+6. Factions (tổ chức)
+🔥 15. SERVER LỚN KHÁC GÌ SERVER NHỎ?
+Server nhỏ:
+/pay
+/job
+/spawncar
+Server lớn:
+hệ thống UI
+inventory
+progression level
+economy thật
+faction chiến tranh
+territory control
