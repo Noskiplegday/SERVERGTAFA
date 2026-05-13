@@ -1,0 +1,48 @@
+# Logs and runtime output
+log.txt
+logs/
+*.log
+
+# Pawn/open.mp build outputs
+*.amx
+*.xml
+*.lst
+*.asm
+
+# Debug symbols and crash dumps
+*.pdb
+*.dmp
+*.mdmp
+crashinfo.txt
+
+# Server runtime data
+bans.json
+scriptfiles/*.db
+scriptfiles/*.sqlite
+scriptfiles/*.sqlite3
+scriptfiles/*.log
+
+# Local database/config secrets
+mysql.ini
+*.env
+.env
+.env.*
+
+# Editor and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+Desktop.ini
+
+# Rust/plugin build artifacts
+target/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig
+
