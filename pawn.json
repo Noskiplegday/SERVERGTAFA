@@ -1,24 +1,39 @@
 {
-    "user": "Y-Less",
-    "repo": "samp-plugin-crashdetect",
-    "include_path": "include",
-    "resources": [
-        {
-            "name": "^crashdetect-(.*)-linux.tar.gz$",
-            "platform": "linux",
-            "archive": true,
-            "includes": ["crashdetect-(.*)-linux"],
-            "plugins": ["crashdetect-(.*)-linux/crashdetect.so"]
-        },
-        {
-            "name": "^crashdetect-(.*)-win32.zip$",
-            "platform": "windows",
-            "archive": true,
-            "includes": ["crashdetect-(.*)-win32"],
-            "plugins": ["crashdetect-(.*)-win32/crashdetect.dll"]
-        }
-    ],
-    "runtime": {
-        "plugins": ["Y-Less/samp-plugin-crashdetect"]
-    }
+	"user": "Sreyas-Sreelal",
+	"repo": "samp-bcrypt",
+	"entry": "pawn-tests/test.pwn",
+	"output": "gamemodes/test.amx",
+	"dependencies": ["sampctl/pawn-stdlib"],
+	"dev_dependencies": ["pawn-lang/YSI-Includes@5.x"],
+	"include_path": "include",
+	"local": true,
+	"builds": [
+		{
+			"name": "test",
+			"includes": ["./include"]
+		}
+	],
+	"runtime": {
+		"rcon_password": "|%GuRd324$\u0026|",
+		"port": 7777,
+		"plugins":["samp_bcrypt"],
+		"gamemodes":["test"],
+		"hostname": "test",
+		"maxplayers": 32,
+		"mode": "y_testing"
+	},
+	"resources": [
+		{
+			"name": "samp-bcrypt-linux-x86.zip",
+			"platform": "linux",
+			"archive": true,
+			"plugins": ["plugins/samp_bcrypt.so"]
+		},
+		{
+			"name": "samp-bcrypt-windows-x86.zip",
+			"platform": "windows",
+			"archive": true,
+			"plugins": ["plugins/samp_bcrypt.dll"]
+		}
+	]
 }

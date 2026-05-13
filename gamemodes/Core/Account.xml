@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet href="file:///D|/1/VUTRUTHIENHA/GAMESERVER/Server/qawno/xml/pawndoc.xsl" type="text/xsl"?>
-<doc source="D:\1\VUTRUTHIENHA\GAMESERVER\Server\gamemodes\rp.pwn">
+<doc source="D:\1\VUTRUTHIENHA\GAMESERVER\Server\gamemodes\Core\Account.pwn">
 	<assembly>
-		<name>rp.pwn</name>
+		<name>Account.pwn</name>
 	</assembly>
 
 	<!-- general -->
@@ -13,7 +13,7 @@
 	<members>
 
 		<!-- enumerations -->
-		<member name="T:E_PLAYER_DATA" value="86">
+		<member name="T:E_PLAYER_DATA" value="87">
 			<tagname value="E_PLAYER_DATA"/>
 			<member name="C:pID" value="0">
 			</member>
@@ -21,9 +21,9 @@
 				<size value="24"/>
 			</member>
 			<member name="C:pPassword" value="25">
-				<size value="60"/>
+				<size value="61"/>
 			</member>
-			<member name="C:pLoggedIn" value="85">
+			<member name="C:pLoggedIn" value="86">
 				<tagname value="bool"/>
 			</member>
 		</member>
@@ -1276,7 +1276,6 @@
 			<referrer name="fflush"/>
 			<referrer name="strequal"/>
 			<referrer name="OnPlayerConnect"/>
-			<referrer name="OnPlayerDisconnect"/>
 		</member>
 		<member name="C:true" value="1">
 			<tagname value="bool"/>
@@ -1290,8 +1289,6 @@
 			<referrer name="OnDialogResponse"/>
 			<referrer name="OnPasswordHashed"/>
 			<referrer name="OnPasswordVerify"/>
-			<referrer name="OnPlayerSpawn"/>
-			<referrer name="OnPlayerDisconnect"/>
 		</member>
 		<member name="F:__OPEN_MP_VERSION">
 			<attribute name="public"/>
@@ -2149,7 +2146,6 @@
 			<attribute name="native"/>
 			<referrer name="OnDialogResponse"/>
 			<referrer name="OnAccountRegistered"/>
-			<referrer name="OnPlayerSpawn"/>
 			<param name="playerid">
 				The ID of the player to kick
 			</param>
@@ -2451,19 +2447,17 @@
 			</param>
 			<summary>This callback is called when an object is moved after <a href="#MoveObject">MoveObject</a>  (when it stops moving).</summary>    <seealso name="MoveObject" />  <seealso name="IsObjectMoving" />  <seealso name="StopObject" />  <seealso name="OnPlayerObjectMoved" />  <remarks><a href="#SetObjectPos">SetObjectPos</a> does not work when used in this callback.  To fix  it, recreate the object.</remarks>  <returns>  This callback does not handle returns.<br />  It is always called first in filterscripts.  </returns> 
 		</member>
-		<member name="M:OnPasswordHashed" syntax="OnPasswordHashed(playerid, hash[])">
+		<member name="M:OnPasswordHashed" syntax="OnPasswordHashed(playerid)">
 			<attribute name="public"/>
-			<stacksize value="264"/>
+			<stacksize value="369"/>
 			<dependency name="PlayerData"/>
 			<dependency name="PlayerData"/>
+			<dependency name="bcrypt_get_hash"/>
 			<dependency name="db_handle"/>
 			<dependency name="mysql_format"/>
 			<dependency name="mysql_tquery"/>
 			<dependency name="pName"/>
 			<param name="playerid">
-			</param>
-			<param name="hash">
-				<paraminfo> [] </paraminfo>
 			</param>
 		</member>
 		<member name="M:OnPasswordVerify" syntax="OnPasswordVerify(playerid, success)">
@@ -2620,12 +2614,7 @@
 			<summary>This callback is called when a player dies, either by suicide or by being killed by another  player.</summary>        <seealso name="OnPlayerSpawn" />  <seealso name="SendDeathMessage" />  <seealso name="SetPlayerHealth" />  <remarks>  The reason will return 37 (flame thrower) from any fire sources (e.g.  molotov, 18)<br />  The reason will return 51 from any weapon that creates an explosion (e.g.  RPG, grenade)<br />  You do not need to check whether killerid is valid before using it in <a href="#SendDeathMessage">SendDeathMessage</a>.  <b><c>INVALID_PLAYER_ID</c></b> is a valid killerid ID parameter in that function.<br />  <b>playerid</b> is the only one who can call the callback. (good to know for anti fake death)  </remarks>  <returns>  <b><c>0</c></b> - Will prevent other filterscripts from receiving this callback.<br />  <b><c>1</c></b> - Indicates that this callback will be passed to the next filterscript.<br />  It is always called first in filterscripts.  </returns> 
 		</member>
 		<member name="M:OnPlayerDisconnect" syntax="OnPlayerDisconnect(playerid, reason)">
-			<attribute name="public"/>
 			<stacksize value="1"/>
-			<dependency name="PlayerData"/>
-			<dependency name="PlayerData"/>
-			<dependency name="false"/>
-			<dependency name="pLoggedIn"/>
 			<param name="playerid">
 				The ID of the player that disconnected
 			</param>
@@ -3017,13 +3006,7 @@
 			<summary>This callback is called when a player selects an item from a menu (<a href="#ShowMenuForPlayer">ShowMenuForPlayer</a>).</summary>      <seealso name="OnPlayerExitedMenu" />  <seealso name="OnDialogResponse" />  <seealso name="CreateMenu" />  <seealso name="DestroyMenu" />  <seealso name="AddMenuItem" />  <seealso name="ShowMenuForPlayer" />  <seealso name="HideMenuForPlayer" />  <remarks>The menu ID is not passed to this callback. <a href="#GetPlayerMenu">GetPlayerMenu</a> must  be used to determine which menu the player selected an item on.</remarks>  <returns>  This callback does not handle returns.<br />  It is always called first in gamemode.  </returns> 
 		</member>
 		<member name="M:OnPlayerSpawn" syntax="OnPlayerSpawn(playerid)">
-			<attribute name="public"/>
-			<stacksize value="6"/>
-			<dependency name="Kick"/>
-			<dependency name="PlayerData"/>
-			<dependency name="SetPlayerFacingAngle"/>
-			<dependency name="SetPlayerPos"/>
-			<dependency name="pLoggedIn"/>
+			<stacksize value="1"/>
 			<param name="playerid">
 				The ID of the player that spawned
 			</param>
@@ -3366,40 +3349,6 @@
 			</param>
 			<library>omp_core</library>  <summary>This function does not work in the current SA:MP version!/</summary>  <seealso name="CreatePickup" />  <seealso name="GivePlayerMoney" />  <seealso name="OnPlayerDeath" /> 
 		</member>
-		<member name="M:SetPlayerFacingAngle" syntax="SetPlayerFacingAngle(playerid, angle)">
-			<tagname value="bool"/>
-			<attribute name="native"/>
-			<referrer name="OnPlayerSpawn"/>
-			<param name="playerid">
-				The ID of the player to set the facing angle of
-			</param>
-			<param name="angle">
-				<paraminfo>Float </paraminfo>
-				The angle the player should face
-			</param>
-			<library>omp_player</library>  <summary>Set a player's facing angle (z rotation).</summary>      <seealso name="GetPlayerFacingAngle" />  <seealso name="SetPlayerPos" />  <remarks>Angles are reversed in GTA:SA; 90 degrees would be East in the real world, but in GTA:SA  90 degrees is in fact West.  North and South are still 0/360 and 180.  To convert this, simply do  <b>360 - angle</b>.</remarks>  <returns>  <b><c>1</c></b>: The function executed successfully.<br />  <b><c>0</c></b>: The function failed to execute.  The player specified does not exist.  </returns> 
-		</member>
-		<member name="M:SetPlayerPos" syntax="SetPlayerPos(playerid, x, y, z)">
-			<tagname value="bool"/>
-			<attribute name="native"/>
-			<referrer name="OnPlayerSpawn"/>
-			<param name="playerid">
-				The ID of the player to set the position of
-			</param>
-			<param name="x">
-				<paraminfo>Float </paraminfo>
-				The x coordinate to position the player at
-			</param>
-			<param name="y">
-				<paraminfo>Float </paraminfo>
-				The y coordinate to position the player at
-			</param>
-			<param name="z">
-				<paraminfo>Float </paraminfo>
-				The z coordinate to position the player at
-			</param>
-			<library>omp_player</library>  <summary>Set a player's position.</summary>          <seealso name="SetPlayerPosFindZ" />  <seealso name="SetPlayerFacingAngle" />  <seealso name="GetPlayerPos" />  <seealso name="SetVehiclePos" />  <seealso name="GetVehiclePos" />  <remarks>Using this function on a player in a vehicle will instantly remove them from the vehicle.  Useful for quickly ejecting players.</remarks>  <returns>  <b><c>1</c></b>: The function executed successfully.<br />  <b><c>0</c></b>: The function failed to execute.  This means the player specified does not exist.  </returns> 
-		</member>
 		<member name="M:SetTeamCount" syntax="SetTeamCount(count)">
 			<stacksize value="1"/>
 			<param name="count">
@@ -3694,7 +3643,6 @@
 		<member name="M:__print" syntax="__print(string[])">
 			<attribute name="native"/>
 			<referrer name="print"/>
-			<referrer name="main"/>
 			<referrer name="OnGameModeInit"/>
 			<param name="string">
 				<paraminfo> [] </paraminfo>
@@ -3724,6 +3672,15 @@
 				<paraminfo> [] </paraminfo>
 			</param>
 			<param name="maxlength">
+			</param>
+		</member>
+		<member name="M:bcrypt_get_hash" syntax="bcrypt_get_hash(hash[], size)">
+			<attribute name="native"/>
+			<referrer name="OnPasswordHashed"/>
+			<param name="hash">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="size">
 			</param>
 		</member>
 		<member name="M:bcrypt_hash" syntax="bcrypt_hash(playerid, callback[], input[], cost, args[], ...)">
@@ -4088,11 +4045,6 @@
 				The new cursor position.
 			</param>
 			<library>console</library>  <summary>Set cursor location.</summary>      <seealso name="clrscr"/>  <return><c>true</c> if the cursor moved and <c>false</c> if the requested position is invalid.</return>  <remarks>Sets the cursor position on the console.  The upper left corner is at <c>(1,1)</c>.</remarks> 
-		</member>
-		<member name="M:main" syntax="main()">
-			<attribute name="entry"/>
-			<stacksize value="3"/>
-			<dependency name="__print"/>
 		</member>
 		<member name="M:mysql_connect" syntax="mysql_connect(host[], user[], password[], database[], option_id)">
 			<tagname value="MySQL"/>
