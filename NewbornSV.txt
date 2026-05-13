@@ -5,7 +5,8 @@
 👤 Account system
 Register / Login
 password hash (bcrypt)
-save data MySQL {ngon}
+save data MySQL 
+====Xong====
 💾 Player data
 tiền 💰
 skin

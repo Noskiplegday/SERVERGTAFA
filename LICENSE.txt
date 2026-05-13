@@ -1,3 +1,18 @@
+BSD 2-Clause License
+==================
+
+File này là giấy phép BSD 2-Clause của CrashDetect.
+
+Hiểu ngắn gọn:
+- Bạn được phép sử dụng, sao chép, chỉnh sửa và phân phối lại mã nguồn hoặc
+  bản build.
+- Khi phân phối lại, cần giữ thông báo copyright, điều kiện giấy phép và phần
+  miễn trừ trách nhiệm.
+- Phần mềm được cung cấp "nguyên trạng", không có bảo hành; tác giả không chịu
+  trách nhiệm cho thiệt hại phát sinh từ việc sử dụng.
+- Bản tiếng Anh bên dưới là nội dung giấy phép gốc. Phần tiếng Việt này chỉ là
+  giải thích tham khảo, không thay thế tư vấn pháp lý.
+
 Copyright (c) 2011-2022 Zeex
 All rights reserved.
 

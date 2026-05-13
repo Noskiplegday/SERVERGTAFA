@@ -789,19 +789,19 @@ Loading component Variables.dll
 	Successfully loaded component Variables (1.5.8.3079) with UID 75e121848bc01fa2
 Loading component Vehicles.dll
 	Successfully loaded component Vehicles (1.5.8.3079) with UID 3f1f62ee9e22ab19
-Loaded 23 component(s) from D:\1\VUTRUTHIENHA\GAMESERVER\Server\components
-[2026-05-13T12:31:48+0700] [Info] 
-[2026-05-13T12:31:48+0700] [Info]  ===============================
-[2026-05-13T12:31:48+0700] [Info] 
-[2026-05-13T12:31:48+0700] [Info]      sscanf component loaded.   
-[2026-05-13T12:31:48+0700] [Info] 
-[2026-05-13T12:31:48+0700] [Info]          Version: 2.13.8
-[2026-05-13T12:31:48+0700] [Info] 
-[2026-05-13T12:31:48+0700] [Info]    (c) 2022 Alex "Y_Less" Cole  
-[2026-05-13T12:31:48+0700] [Info] 
-[2026-05-13T12:31:48+0700] [Info]  ===============================
-[2026-05-13T12:31:48+0700] [Info] 
-[2026-05-13T12:31:48+0700] [Info] Could not find:
+Loaded 23 component(s) from D:\WORKSPACE\GTA\VUTRUTHIENHA\GAMESERVER\Server\components
+[2026-05-13T21:13:33+0700] [Info] 
+[2026-05-13T21:13:33+0700] [Info]  ===============================
+[2026-05-13T21:13:33+0700] [Info] 
+[2026-05-13T21:13:33+0700] [Info]      sscanf component loaded.   
+[2026-05-13T21:13:33+0700] [Info] 
+[2026-05-13T21:13:33+0700] [Info]          Version: 2.13.8
+[2026-05-13T21:13:33+0700] [Info] 
+[2026-05-13T21:13:33+0700] [Info]    (c) 2022 Alex "Y_Less" Cole  
+[2026-05-13T21:13:33+0700] [Info] 
+[2026-05-13T21:13:33+0700] [Info]  ===============================
+[2026-05-13T21:13:33+0700] [Info] 
+[2026-05-13T21:13:33+0700] [Info] Could not find:
 
 	 gamemodes\rp.amx 
 While attempting to load a PAWN script, a file-not-found error was
@@ -817,21 +817,21 @@ encountered.  This could be caused by many things:
    inspecting, rather than a full script.
  * Anything else, really just check the file is at the path given.
 
-[2026-05-13T12:31:48+0700] [Info] Legacy Network started on 0.0.0.0:7777.
-[2026-05-13T12:31:59+0700] [Warning] Couldn't announce legacy network to open.mp list.
-[2026-05-13T12:31:59+0700] [Warning] 	 Status: 406
-[2026-05-13T12:31:59+0700] [Warning] 	 Message: {"error":"failed to query server: socket read timed out"}
-[2026-05-13T12:31:59+0700] [Warning] This won't affect the server's behaviour.
-[2026-05-13T12:32:26+0700] [Info] [connection] incoming connection: 127.0.0.1:55453 id: 0
-[2026-05-13T12:32:26+0700] [Info] [join] Elluu has joined the server (0:127.0.0.1)
-[2026-05-13T12:32:44+0700] [Info] [part] Elluu has left the server (0:1)
-[2026-05-13T12:36:03+0700] [Info] 
-[2026-05-13T12:36:03+0700] [Info]  ===============================
-[2026-05-13T12:36:03+0700] [Info] 
-[2026-05-13T12:36:03+0700] [Info]     sscanf component unloaded.  
-[2026-05-13T12:36:03+0700] [Info] 
-[2026-05-13T12:36:03+0700] [Info]  ===============================
-[2026-05-13T12:36:03+0700] [Info] 
+[2026-05-13T21:13:33+0700] [Info] Legacy Network started on 0.0.0.0:7777.
+[2026-05-13T21:13:44+0700] [Warning] Couldn't announce legacy network to open.mp list.
+[2026-05-13T21:13:44+0700] [Warning] 	 Status: 406
+[2026-05-13T21:13:44+0700] [Warning] 	 Message: {"error":"failed to query server: socket read timed out"}
+[2026-05-13T21:13:44+0700] [Warning] This won't affect the server's behaviour.
+[2026-05-13T21:14:10+0700] [Info] [connection] incoming connection: 127.0.0.1:55663 id: 0
+[2026-05-13T21:14:10+0700] [Info] [join] chode1999 has joined the server (0:127.0.0.1)
+[2026-05-13T21:16:37+0700] [Info] [part] chode1999 has left the server (0:1)
+[2026-05-13T21:19:21+0700] [Info] 
+[2026-05-13T21:19:21+0700] [Info]  ===============================
+[2026-05-13T21:19:21+0700] [Info] 
+[2026-05-13T21:19:21+0700] [Info]     sscanf component unloaded.  
+[2026-05-13T21:19:21+0700] [Info] 
+[2026-05-13T21:19:21+0700] [Info]  ===============================
+[2026-05-13T21:19:21+0700] [Info] 
 Starting open.mp server (1.5.8.3079) from commit c6759bd8d265171ae3d86598895a23d5a8d92a3b
 Loading component $CAPI.dll
 	Successfully loaded component C-API (1.5.8.3079) with UID 10467dd8d4c56fc6
@@ -879,418 +879,21 @@ Loading component Variables.dll
 	Successfully loaded component Variables (1.5.8.3079) with UID 75e121848bc01fa2
 Loading component Vehicles.dll
 	Successfully loaded component Vehicles (1.5.8.3079) with UID 3f1f62ee9e22ab19
-Loaded 23 component(s) from D:\1\VUTRUTHIENHA\GAMESERVER\Server\components
-[2026-05-13T20:14:13+0700] [Info] 
-[2026-05-13T20:14:13+0700] [Info]  ===============================
-[2026-05-13T20:14:13+0700] [Info] 
-[2026-05-13T20:14:13+0700] [Info]      sscanf component loaded.   
-[2026-05-13T20:14:13+0700] [Info] 
-[2026-05-13T20:14:13+0700] [Info]          Version: 2.13.8
-[2026-05-13T20:14:13+0700] [Info] 
-[2026-05-13T20:14:13+0700] [Info]    (c) 2022 Alex "Y_Less" Cole  
-[2026-05-13T20:14:13+0700] [Info] 
-[2026-05-13T20:14:13+0700] [Info]  ===============================
-[2026-05-13T20:14:13+0700] [Info] 
-[2026-05-13T20:14:13+0700] [Error] Function not registered: mysql_tquery
-[2026-05-13T20:14:13+0700] [Error] Function not registered: mysql_format
-[2026-05-13T20:14:13+0700] [Error] Function not registered: mysql_errno
-[2026-05-13T20:14:13+0700] [Error] Function not registered: mysql_connect
-[2026-05-13T20:14:13+0700] [Error] Function not registered: cache_get_row_count
-[2026-05-13T20:14:13+0700] [Error] File or function is not found
-[2026-05-13T20:14:13+0700] [Info] Legacy Network started on 0.0.0.0:7777.
-[2026-05-13T20:14:24+0700] [Warning] Couldn't announce legacy network to open.mp list.
-[2026-05-13T20:14:24+0700] [Warning] 	 Status: 406
-[2026-05-13T20:14:24+0700] [Warning] 	 Message: {"error":"failed to query server: socket read timed out"}
-[2026-05-13T20:14:24+0700] [Warning] This won't affect the server's behaviour.
-[2026-05-13T20:14:38+0700] [Info] [connection] incoming connection: 127.0.0.1:58159 id: 0
-[2026-05-13T20:14:38+0700] [Info] [join] Elluu has joined the server (0:127.0.0.1)
-[2026-05-13T20:14:38+0700] [Error] File or function is not found
-[2026-05-13T20:14:43+0700] [Error] File or function is not found
-[2026-05-13T20:14:46+0700] [Info] [part] Elluu has left the server (0:1)
-[2026-05-13T20:14:55+0700] [Info] 
-[2026-05-13T20:14:55+0700] [Info]  ===============================
-[2026-05-13T20:14:55+0700] [Info] 
-[2026-05-13T20:14:55+0700] [Info]     sscanf component unloaded.  
-[2026-05-13T20:14:55+0700] [Info] 
-[2026-05-13T20:14:55+0700] [Info]  ===============================
-[2026-05-13T20:14:55+0700] [Info] 
-Starting open.mp server (1.5.8.3079) from commit c6759bd8d265171ae3d86598895a23d5a8d92a3b
-Loading component $CAPI.dll
-	Successfully loaded component C-API (1.5.8.3079) with UID 10467dd8d4c56fc6
-Loading component Actors.dll
-	Successfully loaded component Actors (1.5.8.3079) with UID c81ca021eae2ad5c
-Loading component Checkpoints.dll
-	Successfully loaded component Checkpoints (1.5.8.3079) with UID 44a937350d611dde
-Loading component Classes.dll
-	Successfully loaded component Classes (1.5.8.3079) with UID 8cfb3183976da208
-Loading component Console.dll
-	Successfully loaded component Console (1.5.8.3079) with UID bfa24e49d0c95ee4
-Loading component CustomModels.dll
-	Successfully loaded component CustomModels (1.5.8.3079) with UID 15e3cb1e7c77ffff
-Loading component Databases.dll
-	Successfully loaded component Databases (1.5.8.3079) with UID 80092e7eb5821a96
-Loading component Dialogs.dll
-	Successfully loaded component Dialogs (1.5.8.3079) with UID 44a111350d611dde
-Loading component GangZones.dll
-	Successfully loaded component GangZones (1.5.8.3079) with UID b3351d11ee8d8056
-Loading component LegacyConfig.dll
-	Successfully loaded component LegacyConfig (1.5.8.3079) with UID 24ef6216838f9ffc
-Loading component LegacyNetwork.dll
-	Successfully loaded component RakNetLegacyNetwork (1.5.8.3079) with UID ea9799fd79cf8442
-Loading component Menus.dll
-	Successfully loaded component Menus (1.5.8.3079) with UID 621e219eb97ee0b2
-Loading component NPCs.dll
-	Successfully loaded component NPCs (1.5.8.3079) with UID 3d0e59e87f4e90bc
-Loading component Objects.dll
-	Successfully loaded component Objects (1.5.8.3079) with UID 59f8415f72da6160
-Loading component Pawn.dll
-	Successfully loaded component Pawn (1.5.8.3079) with UID 78906cd9f19c36a6
-Loading component Pickups.dll
-	Successfully loaded component Pickups (1.5.8.3079) with UID cf304faa363dd971
-Loading component Recordings.dll
-	Successfully loaded component Recordings (1.5.8.3079) with UID 871144d399f5f613
-Loading component sscanf.dll
-	Successfully loaded component sscanf (2.13.8.0) with UID a1e7c01e55caa1f2
-Loading component TextDraws.dll
-	Successfully loaded component TextDraws (1.5.8.3079) with UID 9b5dc2b1d15c992a
-Loading component TextLabels.dll
-	Successfully loaded component TextLabels (1.5.8.3079) with UID a0c57ea80a009742
-Loading component Timers.dll
-	Successfully loaded component Timers (1.5.8.3079) with UID 2ad8124c5ea257a3
-Loading component Variables.dll
-	Successfully loaded component Variables (1.5.8.3079) with UID 75e121848bc01fa2
-Loading component Vehicles.dll
-	Successfully loaded component Vehicles (1.5.8.3079) with UID 3f1f62ee9e22ab19
-Loaded 23 component(s) from D:\1\VUTRUTHIENHA\GAMESERVER\Server\components
-[2026-05-13T20:15:23+0700] [Info] 
-[2026-05-13T20:15:23+0700] [Info]  ===============================
-[2026-05-13T20:15:23+0700] [Info] 
-[2026-05-13T20:15:23+0700] [Info]      sscanf component loaded.   
-[2026-05-13T20:15:23+0700] [Info] 
-[2026-05-13T20:15:23+0700] [Info]          Version: 2.13.8
-[2026-05-13T20:15:23+0700] [Info] 
-[2026-05-13T20:15:23+0700] [Info]    (c) 2022 Alex "Y_Less" Cole  
-[2026-05-13T20:15:23+0700] [Info] 
-[2026-05-13T20:15:23+0700] [Info]  ===============================
-[2026-05-13T20:15:23+0700] [Info] 
-[2026-05-13T20:15:23+0700] [Error] Function not registered: mysql_tquery
-[2026-05-13T20:15:23+0700] [Error] Function not registered: mysql_format
-[2026-05-13T20:15:23+0700] [Error] Function not registered: mysql_errno
-[2026-05-13T20:15:23+0700] [Error] Function not registered: mysql_connect
-[2026-05-13T20:15:23+0700] [Error] Function not registered: cache_get_row_count
-[2026-05-13T20:15:23+0700] [Error] File or function is not found
-[2026-05-13T20:15:23+0700] [Info] Legacy Network started on 0.0.0.0:7777.
-[2026-05-13T20:15:34+0700] [Warning] Couldn't announce legacy network to open.mp list.
-[2026-05-13T20:15:34+0700] [Warning] 	 Status: 406
-[2026-05-13T20:15:34+0700] [Warning] 	 Message: {"error":"failed to query server: socket read timed out"}
-[2026-05-13T20:15:34+0700] [Warning] This won't affect the server's behaviour.
-[2026-05-13T20:15:59+0700] [Info] [connection] incoming connection: 127.0.0.1:63520 id: 0
-[2026-05-13T20:15:59+0700] [Info] [join] Elluu has joined the server (0:127.0.0.1)
-[2026-05-13T20:15:59+0700] [Error] File or function is not found
-[2026-05-13T20:16:01+0700] [Error] File or function is not found
-[2026-05-13T20:16:04+0700] [Info] [part] Elluu has left the server (0:1)
-[2026-05-13T20:16:15+0700] [Info] 
-[2026-05-13T20:16:15+0700] [Info]  ===============================
-[2026-05-13T20:16:15+0700] [Info] 
-[2026-05-13T20:16:15+0700] [Info]     sscanf component unloaded.  
-[2026-05-13T20:16:15+0700] [Info] 
-[2026-05-13T20:16:15+0700] [Info]  ===============================
-[2026-05-13T20:16:15+0700] [Info] 
-Starting open.mp server (1.5.8.3079) from commit c6759bd8d265171ae3d86598895a23d5a8d92a3b
-Loading component $CAPI.dll
-	Successfully loaded component C-API (1.5.8.3079) with UID 10467dd8d4c56fc6
-Loading component Actors.dll
-	Successfully loaded component Actors (1.5.8.3079) with UID c81ca021eae2ad5c
-Loading component Checkpoints.dll
-	Successfully loaded component Checkpoints (1.5.8.3079) with UID 44a937350d611dde
-Loading component Classes.dll
-	Successfully loaded component Classes (1.5.8.3079) with UID 8cfb3183976da208
-Loading component Console.dll
-	Successfully loaded component Console (1.5.8.3079) with UID bfa24e49d0c95ee4
-Loading component CustomModels.dll
-	Successfully loaded component CustomModels (1.5.8.3079) with UID 15e3cb1e7c77ffff
-Loading component Databases.dll
-	Successfully loaded component Databases (1.5.8.3079) with UID 80092e7eb5821a96
-Loading component Dialogs.dll
-	Successfully loaded component Dialogs (1.5.8.3079) with UID 44a111350d611dde
-Loading component GangZones.dll
-	Successfully loaded component GangZones (1.5.8.3079) with UID b3351d11ee8d8056
-Loading component LegacyConfig.dll
-	Successfully loaded component LegacyConfig (1.5.8.3079) with UID 24ef6216838f9ffc
-Loading component LegacyNetwork.dll
-	Successfully loaded component RakNetLegacyNetwork (1.5.8.3079) with UID ea9799fd79cf8442
-Loading component Menus.dll
-	Successfully loaded component Menus (1.5.8.3079) with UID 621e219eb97ee0b2
-Loading component NPCs.dll
-	Successfully loaded component NPCs (1.5.8.3079) with UID 3d0e59e87f4e90bc
-Loading component Objects.dll
-	Successfully loaded component Objects (1.5.8.3079) with UID 59f8415f72da6160
-Loading component Pawn.dll
-	Successfully loaded component Pawn (1.5.8.3079) with UID 78906cd9f19c36a6
-Loading component Pickups.dll
-	Successfully loaded component Pickups (1.5.8.3079) with UID cf304faa363dd971
-Loading component Recordings.dll
-	Successfully loaded component Recordings (1.5.8.3079) with UID 871144d399f5f613
-Loading component sscanf.dll
-	Successfully loaded component sscanf (2.13.8.0) with UID a1e7c01e55caa1f2
-Loading component TextDraws.dll
-	Successfully loaded component TextDraws (1.5.8.3079) with UID 9b5dc2b1d15c992a
-Loading component TextLabels.dll
-	Successfully loaded component TextLabels (1.5.8.3079) with UID a0c57ea80a009742
-Loading component Timers.dll
-	Successfully loaded component Timers (1.5.8.3079) with UID 2ad8124c5ea257a3
-Loading component Variables.dll
-	Successfully loaded component Variables (1.5.8.3079) with UID 75e121848bc01fa2
-Loading component Vehicles.dll
-	Successfully loaded component Vehicles (1.5.8.3079) with UID 3f1f62ee9e22ab19
-Loaded 23 component(s) from D:\1\VUTRUTHIENHA\GAMESERVER\Server\components
-[2026-05-13T21:16:48+0700] [Info] 
-[2026-05-13T21:16:48+0700] [Info]  ===============================
-[2026-05-13T21:16:48+0700] [Info] 
-[2026-05-13T21:16:48+0700] [Info]      sscanf component loaded.   
-[2026-05-13T21:16:48+0700] [Info] 
-[2026-05-13T21:16:48+0700] [Info]          Version: 2.13.8
-[2026-05-13T21:16:48+0700] [Info] 
-[2026-05-13T21:16:48+0700] [Info]    (c) 2022 Alex "Y_Less" Cole  
-[2026-05-13T21:16:48+0700] [Info] 
-[2026-05-13T21:16:48+0700] [Info]  ===============================
-[2026-05-13T21:16:48+0700] [Info] 
-[2026-05-13T21:16:48+0700] [Error] Function not registered: mysql_tquery
-[2026-05-13T21:16:48+0700] [Error] Function not registered: mysql_format
-[2026-05-13T21:16:48+0700] [Error] Function not registered: mysql_errno
-[2026-05-13T21:16:48+0700] [Error] Function not registered: mysql_connect
-[2026-05-13T21:16:48+0700] [Error] Function not registered: cache_get_row_count
-[2026-05-13T21:16:48+0700] [Error] File or function is not found
-[2026-05-13T21:16:48+0700] [Info] Legacy Network started on 0.0.0.0:7777.
-[2026-05-13T21:17:02+0700] [Warning] Couldn't announce legacy network to open.mp list.
-[2026-05-13T21:17:02+0700] [Warning] 	 Status: 406
-[2026-05-13T21:17:02+0700] [Warning] 	 Message: {"error":"failed to query server: socket read timed out"}
-[2026-05-13T21:17:02+0700] [Warning] This won't affect the server's behaviour.
-[2026-05-13T21:17:08+0700] [Info] [connection] incoming connection: 127.0.0.1:60482 id: 0
-[2026-05-13T21:17:08+0700] [Info] [join] Elluu has joined the server (0:127.0.0.1)
-[2026-05-13T21:17:08+0700] [Error] File or function is not found
-[2026-05-13T21:17:11+0700] [Error] File or function is not found
-[2026-05-13T21:17:30+0700] [Info] [part] Elluu has left the server (0:1)
-[2026-05-13T21:18:00+0700] [Info] 
-[2026-05-13T21:18:00+0700] [Info]  ===============================
-[2026-05-13T21:18:00+0700] [Info] 
-[2026-05-13T21:18:00+0700] [Info]     sscanf component unloaded.  
-[2026-05-13T21:18:00+0700] [Info] 
-[2026-05-13T21:18:00+0700] [Info]  ===============================
-[2026-05-13T21:18:00+0700] [Info] 
-Starting open.mp server (1.5.8.3079) from commit c6759bd8d265171ae3d86598895a23d5a8d92a3b
-Loading component $CAPI.dll
-	Successfully loaded component C-API (1.5.8.3079) with UID 10467dd8d4c56fc6
-Loading component Actors.dll
-	Successfully loaded component Actors (1.5.8.3079) with UID c81ca021eae2ad5c
-Loading component Checkpoints.dll
-	Successfully loaded component Checkpoints (1.5.8.3079) with UID 44a937350d611dde
-Loading component Classes.dll
-	Successfully loaded component Classes (1.5.8.3079) with UID 8cfb3183976da208
-Loading component Console.dll
-	Successfully loaded component Console (1.5.8.3079) with UID bfa24e49d0c95ee4
-Loading component CustomModels.dll
-	Successfully loaded component CustomModels (1.5.8.3079) with UID 15e3cb1e7c77ffff
-Loading component Databases.dll
-	Successfully loaded component Databases (1.5.8.3079) with UID 80092e7eb5821a96
-Loading component Dialogs.dll
-	Successfully loaded component Dialogs (1.5.8.3079) with UID 44a111350d611dde
-Loading component GangZones.dll
-	Successfully loaded component GangZones (1.5.8.3079) with UID b3351d11ee8d8056
-Loading component LegacyConfig.dll
-	Successfully loaded component LegacyConfig (1.5.8.3079) with UID 24ef6216838f9ffc
-Loading component LegacyNetwork.dll
-	Successfully loaded component RakNetLegacyNetwork (1.5.8.3079) with UID ea9799fd79cf8442
-Loading component Menus.dll
-	Successfully loaded component Menus (1.5.8.3079) with UID 621e219eb97ee0b2
-Loading component NPCs.dll
-	Successfully loaded component NPCs (1.5.8.3079) with UID 3d0e59e87f4e90bc
-Loading component Objects.dll
-	Successfully loaded component Objects (1.5.8.3079) with UID 59f8415f72da6160
-Loading component Pawn.dll
-	Successfully loaded component Pawn (1.5.8.3079) with UID 78906cd9f19c36a6
-Loading component Pickups.dll
-	Successfully loaded component Pickups (1.5.8.3079) with UID cf304faa363dd971
-Loading component Recordings.dll
-	Successfully loaded component Recordings (1.5.8.3079) with UID 871144d399f5f613
-Loading component sscanf.dll
-	Successfully loaded component sscanf (2.13.8.0) with UID a1e7c01e55caa1f2
-Loading component TextDraws.dll
-	Successfully loaded component TextDraws (1.5.8.3079) with UID 9b5dc2b1d15c992a
-Loading component TextLabels.dll
-	Successfully loaded component TextLabels (1.5.8.3079) with UID a0c57ea80a009742
-Loading component Timers.dll
-	Successfully loaded component Timers (1.5.8.3079) with UID 2ad8124c5ea257a3
-Loading component Variables.dll
-	Successfully loaded component Variables (1.5.8.3079) with UID 75e121848bc01fa2
-Loading component Vehicles.dll
-	Successfully loaded component Vehicles (1.5.8.3079) with UID 3f1f62ee9e22ab19
-Loaded 23 component(s) from D:\1\VUTRUTHIENHA\GAMESERVER\Server\components
-[2026-05-13T21:33:42+0700] [Info] 
-[2026-05-13T21:33:42+0700] [Info]  ===============================
-[2026-05-13T21:33:42+0700] [Info] 
-[2026-05-13T21:33:42+0700] [Info]      sscanf component loaded.   
-[2026-05-13T21:33:42+0700] [Info] 
-[2026-05-13T21:33:42+0700] [Info]          Version: 2.13.8
-[2026-05-13T21:33:42+0700] [Info] 
-[2026-05-13T21:33:42+0700] [Info]    (c) 2022 Alex "Y_Less" Cole  
-[2026-05-13T21:33:42+0700] [Info] 
-[2026-05-13T21:33:42+0700] [Info]  ===============================
-[2026-05-13T21:33:42+0700] [Info] 
-[2026-05-13T21:33:42+0700] [Error] Function not registered: mysql_close
-[2026-05-13T21:33:42+0700] [Error] Function not registered: mysql_errno
-[2026-05-13T21:33:42+0700] [Error] Function not registered: mysql_connect
-[2026-05-13T21:33:42+0700] [Error] File or function is not found
-[2026-05-13T21:33:42+0700] [Info] Legacy Network started on 0.0.0.0:7777.
-[2026-05-13T21:33:44+0700] [Error] File or function is not found
-[2026-05-13T21:33:44+0700] [Info] 
-[2026-05-13T21:33:44+0700] [Info]  ===============================
-[2026-05-13T21:33:44+0700] [Info] 
-[2026-05-13T21:33:44+0700] [Info]     sscanf component unloaded.  
-[2026-05-13T21:33:44+0700] [Info] 
-[2026-05-13T21:33:44+0700] [Info]  ===============================
-[2026-05-13T21:33:44+0700] [Info] 
-Starting open.mp server (1.5.8.3079) from commit c6759bd8d265171ae3d86598895a23d5a8d92a3b
-Loading component $CAPI.dll
-	Successfully loaded component C-API (1.5.8.3079) with UID 10467dd8d4c56fc6
-Loading component Actors.dll
-	Successfully loaded component Actors (1.5.8.3079) with UID c81ca021eae2ad5c
-Loading component Checkpoints.dll
-	Successfully loaded component Checkpoints (1.5.8.3079) with UID 44a937350d611dde
-Loading component Classes.dll
-	Successfully loaded component Classes (1.5.8.3079) with UID 8cfb3183976da208
-Loading component Console.dll
-	Successfully loaded component Console (1.5.8.3079) with UID bfa24e49d0c95ee4
-Loading component CustomModels.dll
-	Successfully loaded component CustomModels (1.5.8.3079) with UID 15e3cb1e7c77ffff
-Loading component Databases.dll
-	Successfully loaded component Databases (1.5.8.3079) with UID 80092e7eb5821a96
-Loading component Dialogs.dll
-	Successfully loaded component Dialogs (1.5.8.3079) with UID 44a111350d611dde
-Loading component GangZones.dll
-	Successfully loaded component GangZones (1.5.8.3079) with UID b3351d11ee8d8056
-Loading component LegacyConfig.dll
-	Successfully loaded component LegacyConfig (1.5.8.3079) with UID 24ef6216838f9ffc
-Loading component LegacyNetwork.dll
-	Successfully loaded component RakNetLegacyNetwork (1.5.8.3079) with UID ea9799fd79cf8442
-Loading component Menus.dll
-	Successfully loaded component Menus (1.5.8.3079) with UID 621e219eb97ee0b2
-Loading component NPCs.dll
-	Successfully loaded component NPCs (1.5.8.3079) with UID 3d0e59e87f4e90bc
-Loading component Objects.dll
-	Successfully loaded component Objects (1.5.8.3079) with UID 59f8415f72da6160
-Loading component Pawn.dll
-	Successfully loaded component Pawn (1.5.8.3079) with UID 78906cd9f19c36a6
-Loading component Pickups.dll
-	Successfully loaded component Pickups (1.5.8.3079) with UID cf304faa363dd971
-Loading component Recordings.dll
-	Successfully loaded component Recordings (1.5.8.3079) with UID 871144d399f5f613
-Loading component sscanf.dll
-	Successfully loaded component sscanf (2.13.8.0) with UID a1e7c01e55caa1f2
-Loading component TextDraws.dll
-	Successfully loaded component TextDraws (1.5.8.3079) with UID 9b5dc2b1d15c992a
-Loading component TextLabels.dll
-	Successfully loaded component TextLabels (1.5.8.3079) with UID a0c57ea80a009742
-Loading component Timers.dll
-	Successfully loaded component Timers (1.5.8.3079) with UID 2ad8124c5ea257a3
-Loading component Variables.dll
-	Successfully loaded component Variables (1.5.8.3079) with UID 75e121848bc01fa2
-Loading component Vehicles.dll
-	Successfully loaded component Vehicles (1.5.8.3079) with UID 3f1f62ee9e22ab19
-Loaded 23 component(s) from D:\1\VUTRUTHIENHA\GAMESERVER\Server\components
-[2026-05-13T21:34:47+0700] [Info] 
-[2026-05-13T21:34:47+0700] [Info]  ===============================
-[2026-05-13T21:34:47+0700] [Info] 
-[2026-05-13T21:34:47+0700] [Info]      sscanf component loaded.   
-[2026-05-13T21:34:47+0700] [Info] 
-[2026-05-13T21:34:47+0700] [Info]          Version: 2.13.8
-[2026-05-13T21:34:47+0700] [Info] 
-[2026-05-13T21:34:47+0700] [Info]    (c) 2022 Alex "Y_Less" Cole  
-[2026-05-13T21:34:47+0700] [Info] 
-[2026-05-13T21:34:47+0700] [Info]  ===============================
-[2026-05-13T21:34:47+0700] [Info] 
-[2026-05-13T21:34:47+0700] [Error] Function not registered: mysql_close
-[2026-05-13T21:34:47+0700] [Error] Function not registered: mysql_errno
-[2026-05-13T21:34:47+0700] [Error] Function not registered: mysql_connect
-[2026-05-13T21:34:47+0700] [Error] File or function is not found
-[2026-05-13T21:34:47+0700] [Info] Legacy Network started on 0.0.0.0:7777.
-[2026-05-13T21:34:59+0700] [Warning] Couldn't announce legacy network to open.mp list.
-[2026-05-13T21:34:59+0700] [Warning] 	 Status: 406
-[2026-05-13T21:34:59+0700] [Warning] 	 Message: {"error":"failed to query server: socket read timed out"}
-[2026-05-13T21:34:59+0700] [Warning] This won't affect the server's behaviour.
-[2026-05-13T21:35:11+0700] [Info] [connection] incoming connection: 127.0.0.1:54441 id: 0
-[2026-05-13T21:35:11+0700] [Info] [join] Elluu has joined the server (0:127.0.0.1)
-[2026-05-13T21:35:16+0700] [Info] [part] Elluu has left the server (0:1)
-[2026-05-13T21:35:21+0700] [Error] File or function is not found
-[2026-05-13T21:35:21+0700] [Info] 
-[2026-05-13T21:35:21+0700] [Info]  ===============================
-[2026-05-13T21:35:21+0700] [Info] 
-[2026-05-13T21:35:21+0700] [Info]     sscanf component unloaded.  
-[2026-05-13T21:35:21+0700] [Info] 
-[2026-05-13T21:35:21+0700] [Info]  ===============================
-[2026-05-13T21:35:21+0700] [Info] 
-Starting open.mp server (1.5.8.3079) from commit c6759bd8d265171ae3d86598895a23d5a8d92a3b
-Loading component $CAPI.dll
-	Successfully loaded component C-API (1.5.8.3079) with UID 10467dd8d4c56fc6
-Loading component Actors.dll
-	Successfully loaded component Actors (1.5.8.3079) with UID c81ca021eae2ad5c
-Loading component Checkpoints.dll
-	Successfully loaded component Checkpoints (1.5.8.3079) with UID 44a937350d611dde
-Loading component Classes.dll
-	Successfully loaded component Classes (1.5.8.3079) with UID 8cfb3183976da208
-Loading component Console.dll
-	Successfully loaded component Console (1.5.8.3079) with UID bfa24e49d0c95ee4
-Loading component CustomModels.dll
-	Successfully loaded component CustomModels (1.5.8.3079) with UID 15e3cb1e7c77ffff
-Loading component Databases.dll
-	Successfully loaded component Databases (1.5.8.3079) with UID 80092e7eb5821a96
-Loading component Dialogs.dll
-	Successfully loaded component Dialogs (1.5.8.3079) with UID 44a111350d611dde
-Loading component GangZones.dll
-	Successfully loaded component GangZones (1.5.8.3079) with UID b3351d11ee8d8056
-Loading component LegacyConfig.dll
-	Successfully loaded component LegacyConfig (1.5.8.3079) with UID 24ef6216838f9ffc
-Loading component LegacyNetwork.dll
-	Successfully loaded component RakNetLegacyNetwork (1.5.8.3079) with UID ea9799fd79cf8442
-Loading component Menus.dll
-	Successfully loaded component Menus (1.5.8.3079) with UID 621e219eb97ee0b2
-Loading component NPCs.dll
-	Successfully loaded component NPCs (1.5.8.3079) with UID 3d0e59e87f4e90bc
-Loading component Objects.dll
-	Successfully loaded component Objects (1.5.8.3079) with UID 59f8415f72da6160
-Loading component Pawn.dll
-	Successfully loaded component Pawn (1.5.8.3079) with UID 78906cd9f19c36a6
-Loading component Pickups.dll
-	Successfully loaded component Pickups (1.5.8.3079) with UID cf304faa363dd971
-Loading component Recordings.dll
-	Successfully loaded component Recordings (1.5.8.3079) with UID 871144d399f5f613
-Loading component sscanf.dll
-	Successfully loaded component sscanf (2.13.8.0) with UID a1e7c01e55caa1f2
-Loading component TextDraws.dll
-	Successfully loaded component TextDraws (1.5.8.3079) with UID 9b5dc2b1d15c992a
-Loading component TextLabels.dll
-	Successfully loaded component TextLabels (1.5.8.3079) with UID a0c57ea80a009742
-Loading component Timers.dll
-	Successfully loaded component Timers (1.5.8.3079) with UID 2ad8124c5ea257a3
-Loading component Variables.dll
-	Successfully loaded component Variables (1.5.8.3079) with UID 75e121848bc01fa2
-Loading component Vehicles.dll
-	Successfully loaded component Vehicles (1.5.8.3079) with UID 3f1f62ee9e22ab19
-Loaded 23 component(s) from D:\1\VUTRUTHIENHA\GAMESERVER\Server\components
-[2026-05-13T22:11:54+0700] [Info] 
-[2026-05-13T22:11:54+0700] [Info]  ===============================
-[2026-05-13T22:11:54+0700] [Info] 
-[2026-05-13T22:11:54+0700] [Info]      sscanf component loaded.   
-[2026-05-13T22:11:54+0700] [Info] 
-[2026-05-13T22:11:54+0700] [Info]          Version: 2.13.8
-[2026-05-13T22:11:54+0700] [Info] 
-[2026-05-13T22:11:54+0700] [Info]    (c) 2022 Alex "Y_Less" Cole  
-[2026-05-13T22:11:54+0700] [Info] 
-[2026-05-13T22:11:54+0700] [Info]  ===============================
-[2026-05-13T22:11:54+0700] [Info] 
-[2026-05-13T22:11:54+0700] [Info] Could not find:
+Loaded 23 component(s) from D:\WORKSPACE\GTA\VUTRUTHIENHA\GAMESERVER\Server\components
+[2026-05-13T22:35:30+0700] [Info] 
+[2026-05-13T22:35:30+0700] [Info]  ===============================
+[2026-05-13T22:35:30+0700] [Info] 
+[2026-05-13T22:35:30+0700] [Info]      sscanf component loaded.   
+[2026-05-13T22:35:30+0700] [Info] 
+[2026-05-13T22:35:30+0700] [Info]          Version: 2.13.8
+[2026-05-13T22:35:30+0700] [Info] 
+[2026-05-13T22:35:30+0700] [Info]    (c) 2022 Alex "Y_Less" Cole  
+[2026-05-13T22:35:30+0700] [Info] 
+[2026-05-13T22:35:30+0700] [Info]  ===============================
+[2026-05-13T22:35:30+0700] [Info] 
+[2026-05-13T22:35:30+0700] [Info] Could not find:
 
-	 gamemodes\Account.amx 
+	 gamemodes\rp.amx 
 While attempting to load a PAWN script, a file-not-found error was
 encountered.  This could be caused by many things:
 
@@ -1304,184 +907,11 @@ encountered.  This could be caused by many things:
    inspecting, rather than a full script.
  * Anything else, really just check the file is at the path given.
 
-[2026-05-13T22:11:54+0700] [Info] Legacy Network started on port 7777
-[2026-05-13T22:11:59+0700] [Info] 
-[2026-05-13T22:11:59+0700] [Info]  ===============================
-[2026-05-13T22:11:59+0700] [Info] 
-[2026-05-13T22:11:59+0700] [Info]     sscanf component unloaded.  
-[2026-05-13T22:11:59+0700] [Info] 
-[2026-05-13T22:11:59+0700] [Info]  ===============================
-[2026-05-13T22:11:59+0700] [Info] 
-Starting open.mp server (1.5.8.3079) from commit c6759bd8d265171ae3d86598895a23d5a8d92a3b
-Loading component $CAPI.dll
-	Successfully loaded component C-API (1.5.8.3079) with UID 10467dd8d4c56fc6
-Loading component Actors.dll
-	Successfully loaded component Actors (1.5.8.3079) with UID c81ca021eae2ad5c
-Loading component Checkpoints.dll
-	Successfully loaded component Checkpoints (1.5.8.3079) with UID 44a937350d611dde
-Loading component Classes.dll
-	Successfully loaded component Classes (1.5.8.3079) with UID 8cfb3183976da208
-Loading component Console.dll
-	Successfully loaded component Console (1.5.8.3079) with UID bfa24e49d0c95ee4
-Loading component CustomModels.dll
-	Successfully loaded component CustomModels (1.5.8.3079) with UID 15e3cb1e7c77ffff
-Loading component Databases.dll
-	Successfully loaded component Databases (1.5.8.3079) with UID 80092e7eb5821a96
-Loading component Dialogs.dll
-	Successfully loaded component Dialogs (1.5.8.3079) with UID 44a111350d611dde
-Loading component GangZones.dll
-	Successfully loaded component GangZones (1.5.8.3079) with UID b3351d11ee8d8056
-Loading component LegacyConfig.dll
-	Successfully loaded component LegacyConfig (1.5.8.3079) with UID 24ef6216838f9ffc
-Loading component LegacyNetwork.dll
-	Successfully loaded component RakNetLegacyNetwork (1.5.8.3079) with UID ea9799fd79cf8442
-Loading component Menus.dll
-	Successfully loaded component Menus (1.5.8.3079) with UID 621e219eb97ee0b2
-Loading component NPCs.dll
-	Successfully loaded component NPCs (1.5.8.3079) with UID 3d0e59e87f4e90bc
-Loading component Objects.dll
-	Successfully loaded component Objects (1.5.8.3079) with UID 59f8415f72da6160
-Loading component Pawn.dll
-	Successfully loaded component Pawn (1.5.8.3079) with UID 78906cd9f19c36a6
-Loading component Pickups.dll
-	Successfully loaded component Pickups (1.5.8.3079) with UID cf304faa363dd971
-Loading component Recordings.dll
-	Successfully loaded component Recordings (1.5.8.3079) with UID 871144d399f5f613
-Loading component sscanf.dll
-	Successfully loaded component sscanf (2.13.8.0) with UID a1e7c01e55caa1f2
-Loading component TextDraws.dll
-	Successfully loaded component TextDraws (1.5.8.3079) with UID 9b5dc2b1d15c992a
-Loading component TextLabels.dll
-	Successfully loaded component TextLabels (1.5.8.3079) with UID a0c57ea80a009742
-Loading component Timers.dll
-	Successfully loaded component Timers (1.5.8.3079) with UID 2ad8124c5ea257a3
-Loading component Variables.dll
-	Successfully loaded component Variables (1.5.8.3079) with UID 75e121848bc01fa2
-Loading component Vehicles.dll
-	Successfully loaded component Vehicles (1.5.8.3079) with UID 3f1f62ee9e22ab19
-Loaded 23 component(s) from D:\1\VUTRUTHIENHA\GAMESERVER\Server\components
-[2026-05-13T22:13:44+0700] [Info] 
-[2026-05-13T22:13:44+0700] [Info]  ===============================
-[2026-05-13T22:13:44+0700] [Info] 
-[2026-05-13T22:13:44+0700] [Info]      sscanf component loaded.   
-[2026-05-13T22:13:44+0700] [Info] 
-[2026-05-13T22:13:44+0700] [Info]          Version: 2.13.8
-[2026-05-13T22:13:44+0700] [Info] 
-[2026-05-13T22:13:44+0700] [Info]    (c) 2022 Alex "Y_Less" Cole  
-[2026-05-13T22:13:44+0700] [Info] 
-[2026-05-13T22:13:44+0700] [Info]  ===============================
-[2026-05-13T22:13:44+0700] [Info] 
-[2026-05-13T22:13:44+0700] [Info] Could not find:
-
-	 gamemodes\Account.amx 
-While attempting to load a PAWN script, a file-not-found error was
-encountered.  This could be caused by many things:
-
- * The wrong filename was given.
- * The wrong gamemodes path was given.
- * The server was launched from a different directory, making relative paths
-   relative to the wrong place (and thus wrong).
- * You didn't copy the file to the correct directory or server.
- * The compilation failed, leading to no output file.
- * `-l` or `-a` were used to compile, which output intermediate steps for
-   inspecting, rather than a full script.
- * Anything else, really just check the file is at the path given.
-
-[2026-05-13T22:13:45+0700] [Info] Legacy Network started on port 7777
-[2026-05-13T22:13:57+0700] [Warning] Couldn't announce legacy network to open.mp list.
-[2026-05-13T22:13:57+0700] [Warning] 	 Status: 406
-[2026-05-13T22:13:57+0700] [Warning] 	 Message: {"error":"failed to query server: socket read timed out"}
-[2026-05-13T22:13:57+0700] [Warning] This won't affect the server's behaviour.
-[2026-05-13T22:14:25+0700] [Info] [connection] incoming connection: 127.0.0.1:52090 id: 0
-[2026-05-13T22:14:25+0700] [Info] [join] Elluu has joined the server (0:127.0.0.1)
-[2026-05-13T22:14:39+0700] [Info] [part] Elluu has left the server (0:1)
-Starting open.mp server (1.5.8.3079) from commit c6759bd8d265171ae3d86598895a23d5a8d92a3b
-Loading component $CAPI.dll
-	Successfully loaded component C-API (1.5.8.3079) with UID 10467dd8d4c56fc6
-Loading component Actors.dll
-	Successfully loaded component Actors (1.5.8.3079) with UID c81ca021eae2ad5c
-Loading component Checkpoints.dll
-	Successfully loaded component Checkpoints (1.5.8.3079) with UID 44a937350d611dde
-Loading component Classes.dll
-	Successfully loaded component Classes (1.5.8.3079) with UID 8cfb3183976da208
-Loading component Console.dll
-	Successfully loaded component Console (1.5.8.3079) with UID bfa24e49d0c95ee4
-Loading component CustomModels.dll
-	Successfully loaded component CustomModels (1.5.8.3079) with UID 15e3cb1e7c77ffff
-Loading component Databases.dll
-	Successfully loaded component Databases (1.5.8.3079) with UID 80092e7eb5821a96
-Loading component Dialogs.dll
-	Successfully loaded component Dialogs (1.5.8.3079) with UID 44a111350d611dde
-Loading component GangZones.dll
-	Successfully loaded component GangZones (1.5.8.3079) with UID b3351d11ee8d8056
-Loading component LegacyConfig.dll
-	Successfully loaded component LegacyConfig (1.5.8.3079) with UID 24ef6216838f9ffc
-Loading component LegacyNetwork.dll
-	Successfully loaded component RakNetLegacyNetwork (1.5.8.3079) with UID ea9799fd79cf8442
-Loading component Menus.dll
-	Successfully loaded component Menus (1.5.8.3079) with UID 621e219eb97ee0b2
-Loading component NPCs.dll
-	Successfully loaded component NPCs (1.5.8.3079) with UID 3d0e59e87f4e90bc
-Loading component Objects.dll
-	Successfully loaded component Objects (1.5.8.3079) with UID 59f8415f72da6160
-Loading component Pawn.dll
-	Successfully loaded component Pawn (1.5.8.3079) with UID 78906cd9f19c36a6
-Loading component Pickups.dll
-	Successfully loaded component Pickups (1.5.8.3079) with UID cf304faa363dd971
-Loading component Recordings.dll
-	Successfully loaded component Recordings (1.5.8.3079) with UID 871144d399f5f613
-Loading component sscanf.dll
-	Successfully loaded component sscanf (2.13.8.0) with UID a1e7c01e55caa1f2
-Loading component TextDraws.dll
-	Successfully loaded component TextDraws (1.5.8.3079) with UID 9b5dc2b1d15c992a
-Loading component TextLabels.dll
-	Successfully loaded component TextLabels (1.5.8.3079) with UID a0c57ea80a009742
-Loading component Timers.dll
-	Successfully loaded component Timers (1.5.8.3079) with UID 2ad8124c5ea257a3
-Loading component Variables.dll
-	Successfully loaded component Variables (1.5.8.3079) with UID 75e121848bc01fa2
-Loading component Vehicles.dll
-	Successfully loaded component Vehicles (1.5.8.3079) with UID 3f1f62ee9e22ab19
-Loaded 23 component(s) from D:\1\VUTRUTHIENHA\GAMESERVER\Server\components
-[2026-05-13T22:20:20+0700] [Info] 
-[2026-05-13T22:20:20+0700] [Info]  ===============================
-[2026-05-13T22:20:20+0700] [Info] 
-[2026-05-13T22:20:20+0700] [Info]      sscanf component loaded.   
-[2026-05-13T22:20:20+0700] [Info] 
-[2026-05-13T22:20:20+0700] [Info]          Version: 2.13.8
-[2026-05-13T22:20:20+0700] [Info] 
-[2026-05-13T22:20:20+0700] [Info]    (c) 2022 Alex "Y_Less" Cole  
-[2026-05-13T22:20:20+0700] [Info] 
-[2026-05-13T22:20:20+0700] [Info]  ===============================
-[2026-05-13T22:20:20+0700] [Info] 
-[2026-05-13T22:20:20+0700] [Info] Could not find:
-
-	 gamemodes\Account.amx 
-While attempting to load a PAWN script, a file-not-found error was
-encountered.  This could be caused by many things:
-
- * The wrong filename was given.
- * The wrong gamemodes path was given.
- * The server was launched from a different directory, making relative paths
-   relative to the wrong place (and thus wrong).
- * You didn't copy the file to the correct directory or server.
- * The compilation failed, leading to no output file.
- * `-l` or `-a` were used to compile, which output intermediate steps for
-   inspecting, rather than a full script.
- * Anything else, really just check the file is at the path given.
-
-[2026-05-13T22:20:20+0700] [Info] Legacy Network started on port 7777
-[2026-05-13T22:20:31+0700] [Warning] Couldn't announce legacy network to open.mp list.
-[2026-05-13T22:20:31+0700] [Warning] 	 Status: 406
-[2026-05-13T22:20:31+0700] [Warning] 	 Message: {"error":"failed to query server: socket read timed out"}
-[2026-05-13T22:20:31+0700] [Warning] This won't affect the server's behaviour.
-[2026-05-13T22:20:45+0700] [Info] [connection] incoming connection: 127.0.0.1:60138 id: 0
-[2026-05-13T22:20:45+0700] [Info] [join] Elluu has joined the server (0:127.0.0.1)
-[2026-05-13T22:20:54+0700] [Info] [part] Elluu has left the server (0:1)
-[2026-05-13T22:41:52+0700] [Info] 
-[2026-05-13T22:41:52+0700] [Info]  ===============================
-[2026-05-13T22:41:52+0700] [Info] 
-[2026-05-13T22:41:52+0700] [Info]     sscanf component unloaded.  
-[2026-05-13T22:41:52+0700] [Info] 
-[2026-05-13T22:41:52+0700] [Info]  ===============================
-[2026-05-13T22:41:52+0700] [Info] 
+[2026-05-13T22:35:30+0700] [Info] Legacy Network started on 0.0.0.0:7777.
+[2026-05-13T22:35:41+0700] [Warning] Couldn't announce legacy network to open.mp list.
+[2026-05-13T22:35:41+0700] [Warning] 	 Status: 406
+[2026-05-13T22:35:41+0700] [Warning] 	 Message: {"error":"failed to query server: socket read timed out"}
+[2026-05-13T22:35:41+0700] [Warning] This won't affect the server's behaviour.
+[2026-05-13T22:39:47+0700] [Info] [connection] incoming connection: 127.0.0.1:59870 id: 0
+[2026-05-13T22:39:47+0700] [Info] [join] chode1999 has joined the server (0:127.0.0.1)
+[2026-05-13T22:44:04+0700] [Info] [part] chode1999 has left the server (0:1)
