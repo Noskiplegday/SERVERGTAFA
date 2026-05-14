@@ -1,7 +1,5 @@
 # users
 
-Lưu dữ liệu tài khoản và nhân vật người chơi.
-
 ## Columns
 
 | Column | Description |
@@ -41,7 +39,7 @@ Lưu dữ liệu tài khoản và nhân vật người chơi.
 
 ## Notes
 
-- `username` unique ở database; `email` được account flow kiểm tra trùng trước khi đăng ký
+- `username` và `email` phải unique
 - `password_hash` không lưu mật khẩu thô
 - `house = -1` nghĩa là không có nhà
 - `business = -1` nghĩa là không có business

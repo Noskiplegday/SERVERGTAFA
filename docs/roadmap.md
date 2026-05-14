@@ -6,7 +6,7 @@ Roadmap nay dung de theo doi tien do gamemode `rp`. Trang thai chi chuyen `Done`
 
 | Giai doan | He thong | Trang thai | Ghi chu |
 |---|---|---:|---|
-| 1 | Core account/session/data | Doing | Da co welcome/register/login flow moi, compile duoc, server boot duoc; can test in-game register/login/save/load |
+| 1 | Core account/session/data | Doing | Da quay lai MySQL, compile duoc, server boot duoc; can test in-game register/login/save/load |
 | 2 | Economy | Doing | Helper tien, bank, ATM, paycheck da co; dang luu theo player data MySQL |
 | 3 | Jobs | Doing | Da co job base va 5 job mau; can test in-game va them cooldown/luu job sau khi login |
 | 4 | Vehicles | Doing | Gameplay mua/xe con ton tai, JSON persistence da go; can migrate sang bang `player_vehicles` |
@@ -30,15 +30,9 @@ Muc tieu: nguoi choi co the dang ky, dang nhap, load/save du lieu on dinh bang M
 - [x] Load plugin MySQL.
 - [x] Load plugin bcrypt.
 - [x] Ket noi database `vancanhcity_db`.
-- [x] Tao/migrate bang database chuan ban dau cho `users`.
+- [x] Tao bang database chuan ban dau cho `users`.
 - [x] Chuan hoa account/player data ve MySQL, bo huong JSON file.
-- [x] Luu `id`, `username`, `password_hash`, `email`.
-- [x] Chuan hoa field Core: `bank_money`, `job_id`, `admin_level`, `pos_x`, `pos_y`, `pos_z`, `angle`, `last_login_at`.
-- [x] Tao welcome dialog co 2 lua chon Dang nhap/Dang ky.
-- [x] Tao flow dang ky: username, password, verify password, email.
-- [x] Tao flow dang nhap that: username, password, bcrypt check.
-- [x] Fix login lookup: trim input username/email va query username/email case-insensitive.
-- [x] Chan spawn/request class khi chua login bang spectate gate.
+- [x] Luu `id`, `username`, `password`.
 - [x] Luu va load tien.
 - [x] Luu va load skin.
 - [x] Luu va load level/exp.
@@ -50,23 +44,16 @@ Muc tieu: nguoi choi co the dang ky, dang nhap, load/save du lieu on dinh bang M
 - [x] Tach account logic sang `gamemodes/Core/Account.pwn`.
 - [x] Tach player data sang `gamemodes/Core/Player_Data.pwn`.
 - [x] Tao session logic trong `gamemodes/Core/Session.pwn`.
-- [x] Sua API `<bcrypt>`: dung `bcrypt_hash`, `bcrypt_check`, `bcrypt_is_equal`.
-- [x] Sua tag callback open.mp cho `OnPlayerDeath` va `OnPlayerStateChange`.
-- [x] Xoa `Core/JSON_Handler.pwn` va go include JSON khoi build.
 - [x] Compile duoc `gamemodes/rp.amx`.
 - [x] Server boot duoc bang AMX moi, khong thay `Function not registered` trong log.
-- [x] Them smoke test query schema `users` khi server boot: `[MySQL][TEST] users schema query OK.`
-- [x] Chuyen runtime log sang `logs/runtime.log`, khong ghi custom log ra root/scriptfiles.
 - [ ] Test in-game dang ky tai khoan moi.
 - [ ] Test in-game dang nhap tai khoan cu.
 - [ ] Test in-game save/load money, skin, level/exp, spawn, job sau reconnect.
 
 Ghi chu da lam ngay 2026-05-14:
 - Data source da chot ve MySQL. `users` hien gom account va player data nen Core co the chay truoc; co the tach them `player_data` sau khi Phase 1 on dinh.
-- Session login la runtime state cua gamemode (`PlayerData[playerid][pLoggedIn]` va timer ids), khong phai session cua open.mp. Disconnect se save data, kill timer, reset slot player.
-- Player chua login bi giu o spectate mode va chi `SpawnPlayer` sau khi account ton tai + bcrypt dung hoac register insert thanh cong.
 - `Vehicle/Housing/Faction/Business` da go JSON file persistence. Hien dang dung default/in-memory tam thoi va can migrate sang table rieng trong phase tuong ung.
-- Runtime log moi nam o `logs/runtime.log`, khong co `Function not registered`; co warning `mysql_connect: no password specified` vi `DB_PASS` dang rong.
+- Runtime log moi khong co `Function not registered`; co warning `mysql_connect: no password specified` vi `DB_PASS` dang rong.
 
 ## Phase 2: Economy
 
@@ -92,7 +79,7 @@ Ghi chu da lam ngay 2026-05-14:
 - [x] Job Delivery: lay/giao hang co ban.
 - [x] Job Garbage: thu gom rac co ban.
 - [x] Job Mining: dao khoang co ban.
-- [x] Luu job hien tai vao database qua `users.job_id`.
+- [x] Luu job hien tai vao database qua `users.job`.
 - [ ] Test in-game tung job.
 
 ## Phase 4: Vehicles
