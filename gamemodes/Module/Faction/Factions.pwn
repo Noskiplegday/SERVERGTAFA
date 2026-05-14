@@ -47,52 +47,13 @@ stock Faction_Create(const name[], id, Float:x, Float:y, Float:z)
 stock Faction_LoadAll()
 {
     TotalFactions = 0;
-    new path[64], line[512], key[64], value[128];
-
-    for(new i = 0; i < MAX_FACTIONS; i++)
-    {
-        format(path, sizeof(path), "Factions/%d.json", i);
-        if(!fexist(path)) continue;
-
-        new File:f = fopen(path, io_read);
-        if(!f) continue;
-
-        new idx = TotalFactions;
-        while(fread(f, line))
-        {
-            if(!JSON_ParseLine(line, key, sizeof(key), value, sizeof(value))) continue;
-            if(!strcmp(key, "id")) FactionData[idx][fID] = strval(value);
-            else if(!strcmp(key, "name")) strcat((FactionData[idx][fName][0] = EOS, FactionData[idx][fName]), value, 32);
-            else if(!strcmp(key, "hq_x")) FactionData[idx][fHQX] = floatstr(value);
-            else if(!strcmp(key, "hq_y")) FactionData[idx][fHQY] = floatstr(value);
-            else if(!strcmp(key, "hq_z")) FactionData[idx][fHQZ] = floatstr(value);
-        }
-        fclose(f);
-
-        CreatePickup(1239, 1, FactionData[idx][fHQX], FactionData[idx][fHQY], FactionData[idx][fHQZ], -1);
-        new label[128];
-        format(label, sizeof(label), "%s HQ\n/faction", FactionData[idx][fName]);
-        Create3DTextLabel(label, COLOR_BLUE, FactionData[idx][fHQX], FactionData[idx][fHQY], FactionData[idx][fHQZ] + 0.5, 20.0, 0, 0);
-
-        TotalFactions++;
-    }
+    print("[Faction] MySQL load factions chua migrate, dung default factions.");
+    return 1;
 }
 
 stock Faction_SaveOne(idx)
 {
-    new path[64];
-    format(path, sizeof(path), "Factions/%d.json", idx);
-    new File:f = fopen(path, io_write);
-    if(!f) return 0;
-
-    JSON_WriteHeader(f);
-    JSON_WriteInt(f, "id", FactionData[idx][fID]);
-    JSON_WriteString(f, "name", FactionData[idx][fName]);
-    JSON_WriteFloat(f, "hq_x", FactionData[idx][fHQX]);
-    JSON_WriteFloat(f, "hq_y", FactionData[idx][fHQY]);
-    JSON_WriteFloat(f, "hq_z", FactionData[idx][fHQZ], true);
-    JSON_WriteFooter(f);
-    fclose(f);
+    #pragma unused idx
     return 1;
 }
 

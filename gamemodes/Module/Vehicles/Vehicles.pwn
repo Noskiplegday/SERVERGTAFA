@@ -1,5 +1,5 @@
 // Module/Vehicles/Vehicles.pwn
-// He thong xe: du lieu xe, load/save, spawn.
+// He thong xe: du lieu xe, spawn. Persist MySQL se lam o phase Vehicles.
 
 stock Vehicle_Init()
 {
@@ -30,83 +30,14 @@ stock Vehicle_Init()
 
 stock Vehicle_LoadAll()
 {
-    new path[64], line[512], key[64], value[128];
     TotalVehicles = 0;
-
-    for(new i = 0; i < MAX_OWNED_VEHICLES; i++)
-    {
-        format(path, sizeof(path), "Vehicles/%d.json", i);
-        if(!fexist(path)) continue;
-
-        new File:f = fopen(path, io_read);
-        if(!f) continue;
-
-        VehicleData[TotalVehicles][vID] = i;
-        while(fread(f, line))
-        {
-            if(!JSON_ParseLine(line, key, sizeof(key), value, sizeof(value))) continue;
-
-            if(!strcmp(key, "model")) VehicleData[TotalVehicles][vModel] = strval(value);
-            else if(!strcmp(key, "owner")) strcat((VehicleData[TotalVehicles][vOwner][0] = EOS, VehicleData[TotalVehicles][vOwner]), value, MAX_PLAYER_NAME);
-            else if(!strcmp(key, "x")) VehicleData[TotalVehicles][vPosX] = floatstr(value);
-            else if(!strcmp(key, "y")) VehicleData[TotalVehicles][vPosY] = floatstr(value);
-            else if(!strcmp(key, "z")) VehicleData[TotalVehicles][vPosZ] = floatstr(value);
-            else if(!strcmp(key, "a")) VehicleData[TotalVehicles][vPosA] = floatstr(value);
-            else if(!strcmp(key, "color1")) VehicleData[TotalVehicles][vColor1] = strval(value);
-            else if(!strcmp(key, "color2")) VehicleData[TotalVehicles][vColor2] = strval(value);
-            else if(!strcmp(key, "locked")) VehicleData[TotalVehicles][vLocked] = strval(value);
-            else if(!strcmp(key, "fuel")) VehicleData[TotalVehicles][vFuel] = floatstr(value);
-            else if(!strcmp(key, "price")) VehicleData[TotalVehicles][vPrice] = strval(value);
-        }
-        fclose(f);
-
-        VehicleData[TotalVehicles][vSpawnedID] = CreateVehicle(
-            VehicleData[TotalVehicles][vModel],
-            VehicleData[TotalVehicles][vPosX],
-            VehicleData[TotalVehicles][vPosY],
-            VehicleData[TotalVehicles][vPosZ],
-            VehicleData[TotalVehicles][vPosA],
-            VehicleData[TotalVehicles][vColor1],
-            VehicleData[TotalVehicles][vColor2],
-            -1);
-        VehicleData[TotalVehicles][vEngineOn] = false;
-
-        if(VehicleData[TotalVehicles][vLocked])
-        {
-            SetVehicleParamsEx(VehicleData[TotalVehicles][vSpawnedID], 0, 0, 0, 1, 0, 0, 0);
-        }
-
-        TotalVehicles++;
-    }
-
-    new msg[64];
-    format(msg, sizeof(msg), "[Vehicles] Da load %d xe.", TotalVehicles);
-    print(msg);
+    print("[Vehicles] MySQL load xe chua migrate, bo qua vehicle persistence.");
     return 1;
 }
 
 stock Vehicle_SaveOne(idx)
 {
-    new path[64];
-    format(path, sizeof(path), "Vehicles/%d.json", VehicleData[idx][vID]);
-
-    new File:f = fopen(path, io_write);
-    if(!f) return 0;
-
-    JSON_WriteHeader(f);
-    JSON_WriteInt(f, "model", VehicleData[idx][vModel]);
-    JSON_WriteString(f, "owner", VehicleData[idx][vOwner]);
-    JSON_WriteFloat(f, "x", VehicleData[idx][vPosX]);
-    JSON_WriteFloat(f, "y", VehicleData[idx][vPosY]);
-    JSON_WriteFloat(f, "z", VehicleData[idx][vPosZ]);
-    JSON_WriteFloat(f, "a", VehicleData[idx][vPosA]);
-    JSON_WriteInt(f, "color1", VehicleData[idx][vColor1]);
-    JSON_WriteInt(f, "color2", VehicleData[idx][vColor2]);
-    JSON_WriteInt(f, "locked", VehicleData[idx][vLocked]);
-    JSON_WriteFloat(f, "fuel", VehicleData[idx][vFuel]);
-    JSON_WriteInt(f, "price", VehicleData[idx][vPrice], true);
-    JSON_WriteFooter(f);
-    fclose(f);
+    #pragma unused idx
     return 1;
 }
 

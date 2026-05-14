@@ -1,229 +1,234 @@
 # Roadmap Server Roleplay
 
-Roadmap này dùng để theo dõi thứ tự làm việc dựa trên `NewbornSV.txt`. Cập nhật trạng thái sau mỗi lần hoàn thành hoặc test.
+Roadmap nay dung de theo doi tien do gamemode `rp`. Trang thai chi chuyen `Done` khi code compile, server boot duoc, log sach loi runtime quan trong, va da test trong game neu task can gameplay/client.
 
-## Tổng Quan Trạng Thái
+## Tong Quan Trang Thai
 
-| Giai đoạn | Hệ thống | Trạng thái | Ghi chú |
+| Giai doan | He thong | Trang thai | Ghi chu |
 |---|---|---:|---|
-| 1 | Core account/session/data | Doing | Đã có login/register nền trong `rp.pwn`, cần tách module và hoàn thiện load/save |
-| 2 | Economy | Todo | Cần trước Jobs, Vehicles, Housing |
-| 3 | Jobs | Todo | Nguồn tiền chính cho người chơi |
-| 4 | Vehicles | Todo | Mua xe, spawn xe, khóa xe, fuel, garage |
-| 5 | Housing | Todo | Nhà, interior, storage |
-| 6 | Faction | Todo | Police, EMS, Government, Gang/Mafia |
-| 7 | Social | Todo | Phone, SMS, IC/OOC chat, radio |
-| 8 | Inventory | Todo | Item, weapon, food, tools, storage |
-| 9 | Admin | Todo | Rank, kick/ban/warn, spectate, teleport |
-| 10 | Gameplay | Todo | Spawn, death, hospital, jail |
-| 11 | Security | Todo | Anti cheat, anti crash, log, MySQL protection |
-| 12 | Dynamic World | Todo | Dynamic objects, houses, factions, businesses |
-| 13 | Business | Todo | Shop người chơi sở hữu, bán đồ, thu tiền |
+| 1 | Core account/session/data | Doing | Da co welcome/register/login flow moi, compile duoc, server boot duoc; can test in-game register/login/save/load |
+| 2 | Economy | Doing | Helper tien, bank, ATM, paycheck da co; dang luu theo player data MySQL |
+| 3 | Jobs | Doing | Da co job base va 5 job mau; can test in-game va them cooldown/luu job sau khi login |
+| 4 | Vehicles | Doing | Gameplay mua/xe con ton tai, JSON persistence da go; can migrate sang bang `player_vehicles` |
+| 5 | Housing | Doing | Default houses con chay tam, JSON persistence da go; can migrate sang bang `houses` |
+| 6 | Faction | Doing | Default factions con chay tam, JSON persistence da go; can migrate sang bang `factions`/`faction_members` |
+| 7 | Social | Doing | Chat/phone/SMS/radio co khung lenh; can test RP flow |
+| 8 | Inventory | Doing | Item/inventory co khung; can migrate persistence rieng |
+| 9 | Admin | Doing | Rank/command admin co khung; ban/unban da chuyen sang cot `users.banned` |
+| 10 | Gameplay | Doing | Spawn/death/hospital/jail co khung; can test in-game |
+| 11 | Security | Todo | Can validate input, escape/rate limit, log SQL/security day du |
+| 12 | Dynamic World | Todo | Chua migrate MySQL |
+| 13 | Business | Doing | Default businesses con chay tam, JSON persistence da go; can migrate sang bang `businesses` |
 
-## Phase 1: Core Bắt Buộc
+## Phase 1: Core Bat Buoc
 
-Mục tiêu: người chơi có thể đăng ký, đăng nhập, load/save dữ liệu ổn định.
+Muc tieu: nguoi choi co the dang ky, dang nhap, load/save du lieu on dinh bang MySQL.
 
-- [x] Tạo cấu trúc thư mục và file module theo `cautruc.md`.
-- [x] Bổ sung mô tả vai trò từng file trong `cautruc.md`.
-- [x] Refactor `rp.pwn` và `gamemodes/Core/*.pwn` theo flow trong `cautruc.md`.
+- [x] Tao cau truc thu muc va file module theo `cautruc.md`.
+- [x] Bo sung mo ta vai tro tung file trong `cautruc.md`.
+- [x] Refactor `rp.pwn` va `gamemodes/Core/*.pwn` theo flow module.
 - [x] Load plugin MySQL.
 - [x] Load plugin bcrypt.
-- [x] Kết nối database `vancanhcity_db`.
-- [x] Compile được `gamemodes/rp.amx`.
-- [x] Có register/login cơ bản.
-- [ ] Tạo bảng database chuẩn cho `users` và dữ liệu người chơi.
-- [ ] Lưu `id`, `username`, `password`.
-- [ ] Lưu và load tiền.
-- [ ] Lưu và load skin.
-- [ ] Lưu và load level/exp.
-- [ ] Lưu và load vị trí spawn.
-- [ ] Lưu và load job hiện tại.
-- [ ] Chặn chơi khi chưa đăng nhập.
-- [ ] Auto save khi disconnect.
-- [ ] Tách database/connect khỏi `rp.pwn` sang `gamemodes/Core/Database.pwn`.
-- [ ] Tách account logic sang `gamemodes/Core/Account.pwn`.
-- [ ] Tách player data sang `gamemodes/Core/Player_Data.pwn`.
-- [ ] Tạo session logic trong `gamemodes/Core/Session.pwn`.
+- [x] Ket noi database `vancanhcity_db`.
+- [x] Tao/migrate bang database chuan ban dau cho `users`.
+- [x] Chuan hoa account/player data ve MySQL, bo huong JSON file.
+- [x] Luu `id`, `username`, `password_hash`, `email`.
+- [x] Chuan hoa field Core: `bank_money`, `job_id`, `admin_level`, `pos_x`, `pos_y`, `pos_z`, `angle`, `last_login_at`.
+- [x] Tao welcome dialog co 2 lua chon Dang nhap/Dang ky.
+- [x] Tao flow dang ky: username, password, verify password, email.
+- [x] Tao flow dang nhap that: username, password, bcrypt check.
+- [x] Fix login lookup: trim input username/email va query username/email case-insensitive.
+- [x] Chan spawn/request class khi chua login bang spectate gate.
+- [x] Luu va load tien.
+- [x] Luu va load skin.
+- [x] Luu va load level/exp.
+- [x] Luu va load vi tri spawn.
+- [x] Luu va load job hien tai.
+- [x] Chan command/text/spawn khi chua dang nhap.
+- [x] Auto save khi disconnect va timer session.
+- [x] Tach database/connect khoi `rp.pwn` sang `gamemodes/Core/Database.pwn`.
+- [x] Tach account logic sang `gamemodes/Core/Account.pwn`.
+- [x] Tach player data sang `gamemodes/Core/Player_Data.pwn`.
+- [x] Tao session logic trong `gamemodes/Core/Session.pwn`.
+- [x] Sua API `<bcrypt>`: dung `bcrypt_hash`, `bcrypt_check`, `bcrypt_is_equal`.
+- [x] Sua tag callback open.mp cho `OnPlayerDeath` va `OnPlayerStateChange`.
+- [x] Xoa `Core/JSON_Handler.pwn` va go include JSON khoi build.
+- [x] Compile duoc `gamemodes/rp.amx`.
+- [x] Server boot duoc bang AMX moi, khong thay `Function not registered` trong log.
+- [x] Them smoke test query schema `users` khi server boot: `[MySQL][TEST] users schema query OK.`
+- [x] Chuyen runtime log sang `logs/runtime.log`, khong ghi custom log ra root/scriptfiles.
+- [ ] Test in-game dang ky tai khoan moi.
+- [ ] Test in-game dang nhap tai khoan cu.
+- [ ] Test in-game save/load money, skin, level/exp, spawn, job sau reconnect.
+
+Ghi chu da lam ngay 2026-05-14:
+- Data source da chot ve MySQL. `users` hien gom account va player data nen Core co the chay truoc; co the tach them `player_data` sau khi Phase 1 on dinh.
+- Session login la runtime state cua gamemode (`PlayerData[playerid][pLoggedIn]` va timer ids), khong phai session cua open.mp. Disconnect se save data, kill timer, reset slot player.
+- Player chua login bi giu o spectate mode va chi `SpawnPlayer` sau khi account ton tai + bcrypt dung hoac register insert thanh cong.
+- `Vehicle/Housing/Faction/Business` da go JSON file persistence. Hien dang dung default/in-memory tam thoi va can migrate sang table rieng trong phase tuong ung.
+- Runtime log moi nam o `logs/runtime.log`, khong co `Function not registered`; co warning `mysql_connect: no password specified` vi `DB_PASS` dang rong.
 
 ## Phase 2: Economy
 
-Mục tiêu: có nền tiền tệ để các hệ khác dùng.
-
-- [ ] Tạo helper cộng tiền.
-- [ ] Tạo helper trừ tiền.
-- [ ] Tạo helper kiểm tra đủ tiền.
-- [ ] Lưu tiền vào MySQL.
-- [ ] Load tiền khi đăng nhập.
-- [ ] Thêm paycheck theo thời gian.
-- [ ] Tạo bank balance.
-- [ ] Gửi tiền vào bank.
-- [ ] Rút tiền khỏi bank.
-- [ ] Tạo ATM checkpoint/menu cơ bản.
+- [x] Tao helper cong tien.
+- [x] Tao helper tru tien.
+- [x] Tao helper kiem tra du tien.
+- [x] Luu tien vao MySQL qua `PlayerData_Save`.
+- [x] Load tien khi dang nhap qua `PlayerData_LoadFromCache`.
+- [x] Them paycheck theo thoi gian.
+- [x] Tao bank balance.
+- [x] Gui tien vao bank.
+- [x] Rut tien khoi bank.
+- [x] Tao ATM checkpoint/menu co ban.
+- [ ] Test in-game toan bo flow Economy.
 
 ## Phase 3: Jobs
 
-Mục tiêu: người chơi có cách kiếm tiền hợp lệ.
-
-- [ ] Tạo hệ nhận job.
-- [ ] Tạo hệ bỏ job.
-- [ ] Tạo cooldown nhiệm vụ.
-- [ ] Job Taxi: nhận khách, trả khách, nhận tiền.
-- [ ] Job Bus: chạy tuyến, nhận tiền theo checkpoint.
-- [ ] Job Delivery: lấy hàng, giao hàng.
-- [ ] Job Garbage: thu gom rác theo điểm.
-- [ ] Job Mining: đào khoáng, bán khoáng.
-- [ ] Lưu job hiện tại vào database.
+- [x] Tao he nhan job.
+- [x] Tao he bo job.
+- [ ] Tao cooldown nhiem vu.
+- [x] Job Taxi: nhan/trien khai checkpoint co ban.
+- [x] Job Bus: chay tuyen checkpoint co ban.
+- [x] Job Delivery: lay/giao hang co ban.
+- [x] Job Garbage: thu gom rac co ban.
+- [x] Job Mining: dao khoang co ban.
+- [x] Luu job hien tai vao database qua `users.job_id`.
+- [ ] Test in-game tung job.
 
 ## Phase 4: Vehicles
 
-Mục tiêu: người chơi có phương tiện cá nhân.
-
-- [ ] Tạo bảng `player_vehicles`.
-- [ ] Mua xe.
-- [ ] Spawn xe cá nhân.
-- [ ] Despawn xe cá nhân.
-- [ ] Khóa/mở khóa xe.
-- [ ] Fuel cơ bản.
-- [ ] Garage cơ bản.
-- [ ] Lưu vị trí xe.
-- [ ] Lưu trạng thái fuel.
+- [ ] Tao bang `player_vehicles`.
+- [x] Mua xe flow co ban.
+- [x] Spawn xe ca nhan flow co ban.
+- [ ] Despawn xe ca nhan.
+- [x] Khoa/mo khoa xe flow co ban.
+- [x] Fuel co ban.
+- [x] Garage co ban.
+- [ ] Luu vi tri xe vao MySQL.
+- [ ] Luu trang thai fuel vao MySQL.
 
 ## Phase 5: Housing
 
-Mục tiêu: người chơi có nhà và chỗ lưu đồ.
-
-- [ ] Tạo bảng `houses`.
-- [ ] Mua nhà.
-- [ ] Bán nhà.
-- [ ] Vào/ra interior.
-- [ ] Khóa/mở khóa nhà.
-- [ ] Storage trong nhà.
-- [ ] Upgrade nhà.
+- [ ] Tao bang `houses`.
+- [x] Mua nha flow co ban.
+- [x] Ban nha flow co ban.
+- [x] Vao/ra interior.
+- [x] Khoa/mo khoa nha.
+- [x] Storage trong nha co khung.
+- [ ] Luu/load house tu MySQL.
+- [ ] Upgrade nha.
 
 ## Phase 6: Faction
 
-Mục tiêu: tạo tổ chức RP chính.
-
-- [ ] Tạo bảng `factions`.
-- [ ] Tạo bảng `faction_members`.
-- [ ] Police faction.
-- [ ] EMS faction.
-- [ ] Government faction.
-- [ ] Gang/Mafia faction.
-- [ ] Rank system.
-- [ ] Duty on/off.
-- [ ] Faction vehicles.
-- [ ] Faction locker.
-- [ ] Radio faction.
+- [ ] Tao bang `factions`.
+- [ ] Tao bang `faction_members`.
+- [x] Police faction default.
+- [x] EMS faction default.
+- [x] Government faction default.
+- [x] Gang/Mafia faction default.
+- [x] Rank system co khung.
+- [x] Duty on/off.
+- [x] Faction vehicles default.
+- [x] Faction locker co khung.
+- [x] Radio faction co khung.
 
 ## Phase 7: Social
 
-Mục tiêu: tăng tương tác RP giữa người chơi.
-
-- [ ] Chat IC.
-- [ ] Chat OOC.
-- [ ] Phone system.
-- [ ] Gọi điện.
-- [ ] SMS.
-- [ ] Radio.
-- [ ] Danh bạ cơ bản.
+- [x] Chat IC.
+- [x] Chat OOC.
+- [x] Phone system co khung.
+- [x] Goi dien co khung.
+- [x] SMS co khung.
+- [x] Radio co khung.
+- [ ] Danh ba co ban.
+- [ ] Test in-game social flow.
 
 ## Phase 8: Inventory
 
-Mục tiêu: quản lý item và storage.
-
-- [ ] Tạo bảng `items`.
-- [ ] Tạo bảng `player_inventory`.
-- [ ] Thêm item food.
-- [ ] Thêm item tool.
-- [ ] Thêm item weapon nếu cần.
-- [ ] Dùng item.
+- [ ] Tao bang `items`.
+- [ ] Tao bang `player_inventory`.
+- [x] Them item food.
+- [x] Them item tool/basic items.
+- [x] Them item weapon co khung.
+- [x] Dung item co khung.
 - [ ] Drop item.
-- [ ] Storage trong nhà.
+- [x] Storage trong nha co khung.
 - [ ] Storage trong xe.
-- [ ] Storage trong faction locker.
+- [x] Storage trong faction locker co khung.
 
 ## Phase 9: Admin
 
-Mục tiêu: có công cụ vận hành server.
-
-- [ ] Admin rank.
-- [ ] Lệnh kick.
-- [ ] Lệnh ban.
-- [ ] Lệnh warn.
-- [ ] Spectate player.
-- [ ] Teleport tới player.
-- [ ] Teleport player tới mình.
-- [ ] Spawn vehicle.
-- [ ] Freeze/unfreeze player.
-- [ ] Ghi log admin action.
+- [x] Admin rank.
+- [x] Lenh kick.
+- [x] Lenh ban.
+- [x] Lenh warn.
+- [x] Spectate player.
+- [x] Teleport toi player.
+- [x] Teleport player toi minh.
+- [x] Spawn vehicle.
+- [x] Freeze/unfreeze player.
+- [x] Ghi log admin action co ban.
+- [ ] Test in-game permission/rank.
 
 ## Phase 10: Gameplay
 
-Mục tiêu: hoàn thiện vòng chơi cơ bản.
-
-- [ ] Spawn system.
-- [ ] Death system.
-- [ ] Hospital respawn.
-- [ ] Jail system.
-- [ ] Hunger/thirst optional.
+- [x] Spawn system co ban.
+- [x] Death system co ban.
+- [x] Hospital respawn co ban.
+- [x] Jail system co ban.
+- [x] Hunger/thirst co ban.
 - [ ] Newbie spawn flow.
-- [ ] Tutorial ngắn cho người mới.
+- [ ] Tutorial ngan cho nguoi moi.
+- [ ] Test in-game gameplay loop.
 
 ## Phase 11: Security
 
-Mục tiêu: giảm lỗi và chống phá.
-
 - [ ] Validate input dialog.
-- [ ] Escape toàn bộ query MySQL.
-- [ ] Rate limit lệnh nhạy cảm.
+- [x] Escape query MySQL trong account/core bang `mysql_format` `%e`.
+- [ ] Rate limit lenh nhay cam.
 - [ ] Anti money cheat.
-- [ ] Anti weapon cheat cơ bản.
-- [ ] Anti teleport bất thường.
-- [ ] Log lỗi SQL.
+- [ ] Anti weapon cheat co ban.
+- [ ] Anti teleport bat thuong.
+- [ ] Log loi SQL.
 - [ ] Log login/register.
-- [ ] Backup database định kỳ.
+- [ ] Backup database dinh ky.
 
 ## Phase 12: Dynamic World
-
-Mục tiêu: dễ mở rộng nội dung server.
 
 - [ ] Dynamic objects.
 - [ ] Dynamic houses.
 - [ ] Dynamic factions.
 - [ ] Dynamic businesses.
-- [ ] Admin command tạo object/house/business.
-- [ ] Save/load dynamic world từ MySQL.
+- [ ] Admin command tao object/house/business.
+- [ ] Save/load dynamic world tu MySQL.
 
 ## Phase 13: Business
 
-Mục tiêu: tạo hệ kinh tế nâng cao cho server lớn.
-
-- [ ] Tạo bảng `businesses`.
-- [ ] Player mua shop.
-- [ ] Player bán shop.
-- [ ] Shop bán item.
-- [ ] Thu tiền theo giờ.
-- [ ] Quản lý kho hàng.
+- [ ] Tao bang `businesses`.
+- [x] Player mua shop flow co ban.
+- [x] Player ban shop flow co ban.
+- [x] Shop ban item co ban.
+- [x] Thu tien theo gio co khung.
+- [ ] Quan ly kho hang.
 - [ ] Business tax optional.
+- [ ] Luu/load business tu MySQL.
 
-## Thứ Tự Ưu Tiên Gần Nhất
+## Thu Tu Uu Tien Gan Nhat
 
-1. Sửa encoding tiếng Việt trong `rp.pwn` và các file Core.
-2. Chuẩn hóa database: thống nhất dùng `users` hay `players`.
-3. Hoàn thiện login/register và load password đúng cách.
-4. Tách Core ra khỏi `rp.pwn`.
-5. Làm Economy helper.
-6. Làm Job Taxi hoặc Delivery làm job mẫu đầu tiên.
-7. Dùng job mẫu làm template cho các job còn lại.
+1. Test in-game register/login/save/load Core voi MySQL.
+2. Xu ly warning DB password: dat password MySQL that hoac chap nhan local dev rong.
+3. Tach `users` va `player_data` neu muon schema sach hon.
+4. Migrate Vehicles sang `player_vehicles`.
+5. Migrate Housing sang `houses`.
+6. Migrate Inventory sang `items` va `player_inventory`.
+7. Test va sua warning compile theo tung module.
 
 ## Definition Of Done
 
-Một task chỉ chuyển sang `Done` khi:
+Mot task chi chuyen sang `Done` khi:
 
 - Code compile ra `gamemodes/rp.amx`.
-- Server chạy không báo `Function not registered`.
-- Log không có lỗi MySQL.
-- Test được trong game ít nhất một lần.
-- Roadmap được cập nhật trạng thái.
+- Server chay khong bao `Function not registered`.
+- Log khong co loi MySQL nghiem trong.
+- Test duoc trong game it nhat mot lan neu task co gameplay/client flow.
+- Roadmap duoc cap nhat trang thai.

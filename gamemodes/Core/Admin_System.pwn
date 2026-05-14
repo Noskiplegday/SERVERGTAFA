@@ -19,7 +19,7 @@ stock Admin_OnCommand(playerid, cmdtext[])
     // /help
     if(!strcmp(cmd, "/help", true))
     {
-        SendClientMessage(playerid, COLOR_ANNOUNCE, "=== VAN CANH CITY ROLEPLAY ===");
+        SendClientMessage(playerid, COLOR_ANNOUNCE, "=== VAN CANH CITY ===");
         SendClientMessage(playerid, COLOR_WHITE, "/stats /inventory /job /quitjob /work /stopwork");
         SendClientMessage(playerid, COLOR_WHITE, "/pay /balance /deposit /withdraw /transfer");
         SendClientMessage(playerid, COLOR_WHITE, "/buycar /mycars /lock /engine /fuel /park");

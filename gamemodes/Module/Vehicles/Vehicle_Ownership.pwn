@@ -14,10 +14,6 @@ stock Vehicle_SellCar(playerid, idx)
         VehicleData[idx][vSpawnedID] = 0;
     }
 
-    new path[64];
-    format(path, sizeof(path), "Vehicles/%d.json", VehicleData[idx][vID]);
-    if(fexist(path)) fremove(path);
-
     VehicleData[idx][vOwner][0] = EOS;
     VehicleData[idx][vModel] = 0;
 

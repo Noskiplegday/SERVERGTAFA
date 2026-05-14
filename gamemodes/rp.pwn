@@ -1,14 +1,20 @@
 // =============================================
 //   VAN CANH CITY ROLEPLAY - open.mp
-//   Full RP Server - JSON File Storage (No MySQL)
+//   Full RP Server - MySQL Storage
 // =============================================
 
 #include <open.mp>
+#include <a_mysql>
 #include <bcrypt>
 
 // ---- DIALOG IDS ----
-#define DIALOG_REGISTER         1
-#define DIALOG_LOGIN            2
+#define DIALOG_ACCOUNT_WELCOME  1
+#define DIALOG_REGISTER_USERNAME 2
+#define DIALOG_REGISTER_PASSWORD 3
+#define DIALOG_REGISTER_VERIFY 4
+#define DIALOG_REGISTER_EMAIL  5
+#define DIALOG_LOGIN_USERNAME  6
+#define DIALOG_LOGIN_PASSWORD  7
 #define DIALOG_BANK_MENU        10
 #define DIALOG_BANK_DEPOSIT     11
 #define DIALOG_BANK_WITHDRAW    12
@@ -84,6 +90,11 @@ enum E_PLAYER_DATA
     pID,
     pName[MAX_PLAYER_NAME],
     pPassword[65],
+    pEmail[80],
+    pRegUsername[MAX_PLAYER_NAME],
+    pRegPassword[65],
+    pRegEmail[80],
+    pLoginUsername[MAX_PLAYER_NAME],
     bool:pLoggedIn,
     pAdminLevel,
 
@@ -241,7 +252,7 @@ new gPaycheckInterval = 1800;
 new gAutoSaveInterval = 300;
 
 // ---- CORE INCLUDES ----
-#include "Core/JSON_Handler.pwn"
+#include "Core/Database.pwn"
 #include "Core/Session.pwn"
 #include "Core/Player_Data.pwn"
 #include "Core/Account.pwn"
@@ -312,13 +323,21 @@ main()
     print(" ");
     print("====================================");
     print("     VAN CANH CITY ROLEPLAY");
-    print("  Full RP - JSON Storage (No MySQL)");
+    print("  Full RP - MySQL Storage");
     print("====================================");
     print(" ");
 }
 
 public OnGameModeInit()
 {
+    if(!Database_Connect())
+    {
+        print("[Server] Khong the ket noi MySQL. Tat gamemode.");
+        SendRconCommand("exit");
+        return 0;
+    }
+    Database_CreateTables();
+
     SetGameModeText("VC:RP v1.0");
     ShowPlayerMarkers(PLAYER_MARKERS_MODE_GLOBAL);
     ShowNameTags(1);
@@ -327,8 +346,10 @@ public OnGameModeInit()
     UsePlayerPedAnims();
 
     ServerLog_Init();
+    Admin_Init();
     AntiCheat_Init();
     AntiCrash_Init();
+    Economy_Init();
     Inventory_Init();
     ATM_Init();
     Job_Init();
@@ -361,6 +382,7 @@ public OnGameModeExit()
     House_SaveAll();
     Business_SaveAll();
     ServerLog_Write("[Server] Server da tat.");
+    Database_Close();
     print("[Server] Server da tat. Da luu toan bo du lieu.");
     return 1;
 }
@@ -369,6 +391,29 @@ public OnPlayerConnect(playerid)
 {
     Session_Reset(playerid);
     Account_OnPlayerConnect(playerid);
+    return 1;
+}
+
+public OnPlayerRequestClass(playerid, classid)
+{
+    #pragma unused classid
+    if(!Session_IsLoggedIn(playerid))
+    {
+        TogglePlayerSpectating(playerid, true);
+        Account_ShowWelcome(playerid);
+        return 0;
+    }
+    return 1;
+}
+
+public OnPlayerRequestSpawn(playerid)
+{
+    if(!Session_IsLoggedIn(playerid))
+    {
+        TogglePlayerSpectating(playerid, true);
+        Account_ShowWelcome(playerid);
+        return 0;
+    }
     return 1;
 }
 
@@ -396,14 +441,15 @@ public OnPlayerSpawn(playerid)
 {
     if(!Session_IsLoggedIn(playerid))
     {
-        Kick(playerid);
+        TogglePlayerSpectating(playerid, true);
+        Account_ShowWelcome(playerid);
         return 1;
     }
     Spawn_OnPlayerSpawn(playerid);
     return 1;
 }
 
-public OnPlayerDeath(playerid, killerid, reason)
+public OnPlayerDeath(playerid, killerid, WEAPON:reason)
 {
     Death_OnPlayerDeath(playerid, killerid, reason);
     return 1;
@@ -502,7 +548,7 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
     return 1;
 }
 
-public OnPlayerStateChange(playerid, newstate, oldstate)
+public OnPlayerStateChange(playerid, PLAYER_STATE:newstate, PLAYER_STATE:oldstate)
 {
     if(newstate == PLAYER_STATE_DRIVER)
     {

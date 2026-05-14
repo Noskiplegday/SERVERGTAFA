@@ -57,63 +57,13 @@ stock Business_CreatePickup(b)
 stock Business_LoadAll()
 {
     TotalBusinesses = 0;
-    new path[64], line[512], key[64], value[128];
-
-    for(new i = 0; i < MAX_BUSINESSES; i++)
-    {
-        format(path, sizeof(path), "Businesses/%d.json", i);
-        if(!fexist(path)) continue;
-
-        new File:f = fopen(path, io_read);
-        if(!f) continue;
-
-        new idx = TotalBusinesses;
-        BusinessData[idx][bOwnerID] = -1;
-        while(fread(f, line))
-        {
-            if(!JSON_ParseLine(line, key, sizeof(key), value, sizeof(value))) continue;
-            if(!strcmp(key, "name")) strcat((BusinessData[idx][bName][0] = EOS, BusinessData[idx][bName]), value, 32);
-            else if(!strcmp(key, "price")) BusinessData[idx][bPrice] = strval(value);
-            else if(!strcmp(key, "owner")) BusinessData[idx][bOwnerID] = strval(value);
-            else if(!strcmp(key, "enter_x")) BusinessData[idx][bEnterX] = floatstr(value);
-            else if(!strcmp(key, "enter_y")) BusinessData[idx][bEnterY] = floatstr(value);
-            else if(!strcmp(key, "enter_z")) BusinessData[idx][bEnterZ] = floatstr(value);
-            else if(!strcmp(key, "int_x")) BusinessData[idx][bInteriorX] = floatstr(value);
-            else if(!strcmp(key, "int_y")) BusinessData[idx][bInteriorY] = floatstr(value);
-            else if(!strcmp(key, "int_z")) BusinessData[idx][bInteriorZ] = floatstr(value);
-            else if(!strcmp(key, "interior")) BusinessData[idx][bInterior] = strval(value);
-            else if(!strcmp(key, "locked")) BusinessData[idx][bLocked] = (strval(value) != 0);
-            else if(!strcmp(key, "income")) BusinessData[idx][bIncome] = strval(value);
-        }
-        fclose(f);
-
-        Business_CreatePickup(idx);
-        TotalBusinesses++;
-    }
+    print("[Business] MySQL load business chua migrate, dung default businesses.");
+    return 1;
 }
 
 stock Business_SaveOne(b)
 {
-    new path[64];
-    format(path, sizeof(path), "Businesses/%d.json", b);
-    new File:f = fopen(path, io_write);
-    if(!f) return 0;
-
-    JSON_WriteHeader(f);
-    JSON_WriteString(f, "name", BusinessData[b][bName]);
-    JSON_WriteInt(f, "price", BusinessData[b][bPrice]);
-    JSON_WriteInt(f, "owner", BusinessData[b][bOwnerID]);
-    JSON_WriteFloat(f, "enter_x", BusinessData[b][bEnterX]);
-    JSON_WriteFloat(f, "enter_y", BusinessData[b][bEnterY]);
-    JSON_WriteFloat(f, "enter_z", BusinessData[b][bEnterZ]);
-    JSON_WriteFloat(f, "int_x", BusinessData[b][bInteriorX]);
-    JSON_WriteFloat(f, "int_y", BusinessData[b][bInteriorY]);
-    JSON_WriteFloat(f, "int_z", BusinessData[b][bInteriorZ]);
-    JSON_WriteInt(f, "interior", BusinessData[b][bInterior]);
-    JSON_WriteInt(f, "locked", BusinessData[b][bLocked] ? 1 : 0);
-    JSON_WriteInt(f, "income", BusinessData[b][bIncome], true);
-    JSON_WriteFooter(f);
-    fclose(f);
+    #pragma unused b
     return 1;
 }
 

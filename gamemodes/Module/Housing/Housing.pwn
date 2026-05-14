@@ -1,5 +1,5 @@
 // Module/Housing/Housing.pwn
-// He thong nha: mua, ban, load/save tu JSON.
+// He thong nha: mua, ban. Persist MySQL se lam o phase Housing.
 
 stock House_Init()
 {
@@ -65,72 +65,14 @@ stock House_CreatePickup(h)
 
 stock House_LoadAll()
 {
-    new path[64], line[512], key[64], value[128];
     TotalHouses = 0;
-
-    for(new i = 0; i < MAX_HOUSES; i++)
-    {
-        format(path, sizeof(path), "Houses/%d.json", i);
-        if(!fexist(path)) continue;
-
-        new File:f = fopen(path, io_read);
-        if(!f) continue;
-
-        new h = TotalHouses;
-        HouseData[h][hID] = i;
-        HouseData[h][hOwner][0] = EOS;
-
-        while(fread(f, line))
-        {
-            if(!JSON_ParseLine(line, key, sizeof(key), value, sizeof(value))) continue;
-            if(!strcmp(key, "owner")) strcat((HouseData[h][hOwner][0] = EOS, HouseData[h][hOwner]), value, MAX_PLAYER_NAME);
-            else if(!strcmp(key, "price")) HouseData[h][hPrice] = strval(value);
-            else if(!strcmp(key, "locked")) HouseData[h][hLocked] = strval(value);
-            else if(!strcmp(key, "enter_x")) HouseData[h][hEnterX] = floatstr(value);
-            else if(!strcmp(key, "enter_y")) HouseData[h][hEnterY] = floatstr(value);
-            else if(!strcmp(key, "enter_z")) HouseData[h][hEnterZ] = floatstr(value);
-            else if(!strcmp(key, "exit_x")) HouseData[h][hExitX] = floatstr(value);
-            else if(!strcmp(key, "exit_y")) HouseData[h][hExitY] = floatstr(value);
-            else if(!strcmp(key, "exit_z")) HouseData[h][hExitZ] = floatstr(value);
-            else if(!strcmp(key, "interior")) HouseData[h][hInterior] = strval(value);
-        }
-        fclose(f);
-
-        for(new s = 0; s < MAX_HOUSE_STORAGE; s++)
-        {
-            HouseData[h][hStorage][s] = ITEM_NONE;
-            HouseData[h][hStorageAmt][s] = 0;
-        }
-
-        House_CreatePickup(h);
-        TotalHouses++;
-    }
-
-    new msg[64];
-    format(msg, sizeof(msg), "[Housing] Da load %d nha.", TotalHouses);
-    print(msg);
+    print("[Housing] MySQL load nha chua migrate, dung default houses.");
+    return 1;
 }
 
 stock House_SaveOne(h)
 {
-    new path[64];
-    format(path, sizeof(path), "Houses/%d.json", HouseData[h][hID]);
-    new File:f = fopen(path, io_write);
-    if(!f) return 0;
-
-    JSON_WriteHeader(f);
-    JSON_WriteString(f, "owner", HouseData[h][hOwner]);
-    JSON_WriteInt(f, "price", HouseData[h][hPrice]);
-    JSON_WriteInt(f, "locked", HouseData[h][hLocked]);
-    JSON_WriteFloat(f, "enter_x", HouseData[h][hEnterX]);
-    JSON_WriteFloat(f, "enter_y", HouseData[h][hEnterY]);
-    JSON_WriteFloat(f, "enter_z", HouseData[h][hEnterZ]);
-    JSON_WriteFloat(f, "exit_x", HouseData[h][hExitX]);
-    JSON_WriteFloat(f, "exit_y", HouseData[h][hExitY]);
-    JSON_WriteFloat(f, "exit_z", HouseData[h][hExitZ]);
-    JSON_WriteInt(f, "interior", HouseData[h][hInterior], true);
-    JSON_WriteFooter(f);
-    fclose(f);
+    #pragma unused h
     return 1;
 }
 

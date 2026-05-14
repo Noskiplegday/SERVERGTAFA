@@ -5,7 +5,13 @@ stock Session_Reset(playerid)
 {
     PlayerData[playerid][pLoggedIn] = false;
     PlayerData[playerid][pID] = 0;
+    PlayerData[playerid][pName][0] = EOS;
     PlayerData[playerid][pPassword][0] = EOS;
+    PlayerData[playerid][pEmail][0] = EOS;
+    PlayerData[playerid][pRegUsername][0] = EOS;
+    PlayerData[playerid][pRegPassword][0] = EOS;
+    PlayerData[playerid][pRegEmail][0] = EOS;
+    PlayerData[playerid][pLoginUsername][0] = EOS;
     PlayerData[playerid][pLoginAttempts] = 0;
     PlayerData[playerid][pSaveTimerID] = 0;
     PlayerData[playerid][pPaycheckTimerID] = 0;
