@@ -1,3 +1,5 @@
+
+
 // =============================================
 //   VAN CANH CITY ROLEPLAY - open.mp
 //   Full RP Server - MySQL Storage
@@ -6,6 +8,7 @@
 #include <open.mp>
 #include <a_mysql>
 #include <bcrypt>
+#include <izcmd>
 
 // ---- DIALOG IDS ----
 #define DIALOG_ACCOUNT_WELCOME  1
@@ -502,7 +505,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
     if(DynHouse_OnCommand(playerid, cmdtext)) return 1;
     if(DynFaction_OnCommand(playerid, cmdtext)) return 1;
     if(DynBusiness_OnCommand(playerid, cmdtext)) return 1;
-
+    if(Video_OnCommand(playerid, cmdtext)) return 1;
     SendClientMessage(playerid, COLOR_RED, "Lenh khong ton tai. Dung /help de xem danh sach lenh.");
     return 1;
 }
@@ -572,3 +575,18 @@ public OnRconLoginAttempt(ip[], password[], success)
     AntiCrash_OnRconLogin(INVALID_PLAYER_ID, ip, success);
     return 1;
 }
+
+forward Video_OnCommand(playerid, cmdtext[]);
+public Video_OnCommand(playerid, cmdtext[])
+{
+    if(strcmp(cmdtext, "/veh", true) == 0)
+    {
+        new Float:X, Float:Y, Float:Z;
+        GetPlayerPos(playerid, X, Y, Z);
+        CreateVehicle(411, X, Y + 2.0, Z, 0.0, 3, 3, -1); 
+        SendClientMessage(playerid, -1, "{00FF00}[VanCanhCity]{FFFFFF} Ban da tao thanh cong Infernus!");
+        return 1;
+    }
+    return 0;
+}
+

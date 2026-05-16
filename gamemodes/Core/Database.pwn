@@ -1,3 +1,4 @@
+
 // Core/Database.pwn
 // Ket noi MySQL va tao/migrate schema nen cho account/player data.
 
@@ -128,3 +129,4 @@ stock Database_Close()
     print("[MySQL] Da dong ket noi database.");
     return 1;
 }
+

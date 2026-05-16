@@ -1,3 +1,4 @@
+
 // Core/Account.pwn
 // Dang ky, dang nhap voi bcrypt hash va MySQL.
 
@@ -505,3 +506,4 @@ stock Account_RemoveBan(const name[])
     mysql_tquery(g_SQL, query);
     return 1;
 }
+

@@ -1,3 +1,4 @@
+
 // Core/Admin_System.pwn
 // He thong admin: rank, kick/ban/warn/mute, tp, spectate, spawn vehicle.
 
@@ -374,3 +375,4 @@ stock Admin_ParseIDReason(params[], &tid, reason[], maxreason)
     tid = strval(p1);
     return 1;
 }
+
