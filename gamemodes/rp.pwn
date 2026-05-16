@@ -2,13 +2,11 @@
 
 // =============================================
 //   VAN CANH CITY ROLEPLAY - open.mp
-//   Full RP Server - MySQL Storage
+//   Full RP Server - Database Storage
 // =============================================
 
 #include <open.mp>
-#include <a_mysql>
 #include <bcrypt>
-#include <izcmd>
 
 // ---- DIALOG IDS ----
 #define DIALOG_ACCOUNT_WELCOME  1
@@ -18,6 +16,8 @@
 #define DIALOG_REGISTER_EMAIL  5
 #define DIALOG_LOGIN_USERNAME  6
 #define DIALOG_LOGIN_PASSWORD  7
+#define DIALOG_REGISTER_FAMILY_CCCD 8
+#define DIALOG_REGISTER_FAMILY_RELATION 9
 #define DIALOG_BANK_MENU        10
 #define DIALOG_BANK_DEPOSIT     11
 #define DIALOG_BANK_WITHDRAW    12
@@ -37,6 +37,7 @@
 #define DIALOG_INVENTORY        70
 #define DIALOG_SHOP             82
 #define DIALOG_HELP             100
+#define DIALOG_LOGIN_SPAWN      101
 
 // ---- COLORS ----
 #define COLOR_GREEN     0x00FF00FF
@@ -87,6 +88,20 @@
 #define FACTION_GOV     3
 #define FACTION_GANG    4
 
+// ---- DEFAULT SPAWN ----
+#define DEFAULT_SPAWN_X 1481.1199
+#define DEFAULT_SPAWN_Y -1690.2500
+#define DEFAULT_SPAWN_Z 14.0469
+#define DEFAULT_SPAWN_A 180.0
+
+// ---- LOGIN CAMERA ----
+#define LOGIN_CAMERA_X 1481.1199
+#define LOGIN_CAMERA_Y -1718.0000
+#define LOGIN_CAMERA_Z 25.5000
+#define LOGIN_LOOK_X   1481.1199
+#define LOGIN_LOOK_Y   -1690.2500
+#define LOGIN_LOOK_Z   14.0469
+
 // ---- PLAYER DATA ENUM ----
 enum E_PLAYER_DATA
 {
@@ -94,9 +109,16 @@ enum E_PLAYER_DATA
     pName[MAX_PLAYER_NAME],
     pPassword[65],
     pEmail[80],
+    pCCCD[16],
+    pRole[16],
+    pMission[32],
+    pFamilyCCCD[16],
+    pFamilyRelation[32],
     pRegUsername[MAX_PLAYER_NAME],
     pRegPassword[65],
     pRegEmail[80],
+    pRegFamilyCCCD[16],
+    pRegFamilyRelation[32],
     pLoginUsername[MAX_PLAYER_NAME],
     bool:pLoggedIn,
     pAdminLevel,
@@ -148,6 +170,7 @@ enum E_PLAYER_DATA
     pJailTimerID,
     pHungerTimerID,
     pJobTimerID,
+    pHudTimerID,
 
     pACWarnings,
     pLoginAttempts
@@ -256,6 +279,7 @@ new gAutoSaveInterval = 300;
 
 // ---- CORE INCLUDES ----
 #include "Core/Database.pwn"
+#include "Core/HUD.pwn"
 #include "Core/Session.pwn"
 #include "Core/Player_Data.pwn"
 #include "Core/Account.pwn"
@@ -273,7 +297,7 @@ new gAutoSaveInterval = 300;
 
 // Inventory before Social (Inventory_HasItem used by Phone)
 #include "Module/Inventory/Items.pwn"
-#include "Module/Inventory/Inventory.pwn"
+#include "Module/Inventory/Inventory_Core.pwn"
 #include "Module/Inventory/Storage.pwn"
 
 #include "Module/Jobs/Jobs.pwn"
@@ -325,8 +349,7 @@ main()
 {
     print(" ");
     print("====================================");
-    print("     VAN CANH CITY ROLEPLAY");
-    print("  Full RP - MySQL Storage");
+    print("     VAN CANH CITY ");
     print("====================================");
     print(" ");
 }
@@ -335,11 +358,12 @@ public OnGameModeInit()
 {
     if(!Database_Connect())
     {
-        print("[Server] Khong the ket noi MySQL. Tat gamemode.");
+        print("[Server] Khong the ket noi database. Tat gamemode.");
         SendRconCommand("exit");
         return 0;
     }
     Database_CreateTables();
+    Account_Init();
 
     SetGameModeText("VC:RP v1.0");
     ShowPlayerMarkers(PLAYER_MARKERS_MODE_GLOBAL);
@@ -366,9 +390,9 @@ public OnGameModeInit()
     DynObject_Init();
     DynHouse_Init();
 
-    AddPlayerClass(0, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 0, 0, 0, 0, 0);
+    AddPlayerClass(0, DEFAULT_SPAWN_X, DEFAULT_SPAWN_Y, DEFAULT_SPAWN_Z, DEFAULT_SPAWN_A, 0, 0, 0, 0, 0, 0);
 
-    print("[Server] Van Canh City RP da khoi dong thanh cong!");
+    print("[Server] Van Canh City da khoi dong thanh cong!");
     return 1;
 }
 
@@ -378,6 +402,7 @@ public OnGameModeExit()
     {
         if(IsPlayerConnected(i) && Session_IsLoggedIn(i))
         {
+            Account_SaveRuntime(i);
             PlayerData_Save(i);
         }
     }
@@ -392,7 +417,6 @@ public OnGameModeExit()
 
 public OnPlayerConnect(playerid)
 {
-    Session_Reset(playerid);
     Account_OnPlayerConnect(playerid);
     return 1;
 }
@@ -402,8 +426,7 @@ public OnPlayerRequestClass(playerid, classid)
     #pragma unused classid
     if(!Session_IsLoggedIn(playerid))
     {
-        TogglePlayerSpectating(playerid, true);
-        Account_ShowWelcome(playerid);
+        Account_ShowLoginScreen(playerid);
         return 0;
     }
     return 1;
@@ -413,8 +436,7 @@ public OnPlayerRequestSpawn(playerid)
 {
     if(!Session_IsLoggedIn(playerid))
     {
-        TogglePlayerSpectating(playerid, true);
-        Account_ShowWelcome(playerid);
+        Account_ShowLoginScreen(playerid);
         return 0;
     }
     return 1;
@@ -434,6 +456,7 @@ public OnPlayerDisconnect(playerid, reason)
             SendClientMessage(tid, COLOR_YELLOW, "Cuoc goi da ket thuc.");
         }
 
+        Account_SaveRuntime(playerid);
         PlayerData_Save(playerid);
     }
     Session_Cleanup(playerid);
@@ -444,8 +467,7 @@ public OnPlayerSpawn(playerid)
 {
     if(!Session_IsLoggedIn(playerid))
     {
-        TogglePlayerSpectating(playerid, true);
-        Account_ShowWelcome(playerid);
+        Account_ShowLoginScreen(playerid);
         return 1;
     }
     Spawn_OnPlayerSpawn(playerid);
@@ -480,6 +502,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
         return 1;
     }
 
+    if(Account_OnCommand(playerid, cmdtext)) return 1;
     if(Admin_OnCommand(playerid, cmdtext)) return 1;
     if(FactionRank_OnCommand(playerid, cmdtext)) return 1;
     if(Economy_OnCommand(playerid, cmdtext)) return 1;

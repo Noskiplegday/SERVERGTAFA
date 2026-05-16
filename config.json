@@ -1,6 +1,6 @@
 
 {
-    "announce": true,
+    "announce": false,
     "artwork": {
         "cdn": "",
         "enable": true,
@@ -52,7 +52,7 @@
         "enable": true,
         "file": "logs/runtime.log",
         "log_chat": true,
-        "log_connection_messages": true,
+        "log_connection_messages": false,
         "log_cookies": false,
         "log_deaths": true,
         "log_queries": false,
@@ -104,7 +104,6 @@
     "password": "",
     "pawn": {
         "legacy_plugins": [
-            "mysql",
             "bcrypt-samp"
         ],
         "main_scripts": [

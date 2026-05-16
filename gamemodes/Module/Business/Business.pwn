@@ -57,7 +57,7 @@ stock Business_CreatePickup(b)
 stock Business_LoadAll()
 {
     TotalBusinesses = 0;
-    print("[Business] MySQL load business chua migrate, dung default businesses.");
+    print("[Business] Database load business chua migrate, dung default businesses.");
     return 1;
 }
 

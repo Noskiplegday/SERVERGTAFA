@@ -1,5 +1,5 @@
 // Module/Housing/Housing.pwn
-// He thong nha: mua, ban. Persist MySQL se lam o phase Housing.
+// He thong nha: mua, ban. Persist database se lam o phase Housing.
 
 stock House_Init()
 {
@@ -66,7 +66,7 @@ stock House_CreatePickup(h)
 stock House_LoadAll()
 {
     TotalHouses = 0;
-    print("[Housing] MySQL load nha chua migrate, dung default houses.");
+    print("[Housing] Database load nha chua migrate, dung default houses.");
     return 1;
 }
 

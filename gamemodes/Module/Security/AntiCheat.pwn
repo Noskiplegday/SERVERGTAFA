@@ -34,8 +34,12 @@ stock AntiCheat_OnUpdate(playerid)
     {
         ResetPlayerMoney(playerid);
         GivePlayerMoney(playerid, PlayerData[playerid][pMoney]);
-        PlayerData[playerid][pACWarnings]++;
-        AntiCheat_Warn(playerid, "Money hack");
+
+        if(money > PlayerData[playerid][pMoney])
+        {
+            PlayerData[playerid][pACWarnings]++;
+            AntiCheat_Warn(playerid, "Money hack");
+        }
     }
 
     if(GetPlayerWeapon(playerid) == 38) // Minigun

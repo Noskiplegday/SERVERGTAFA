@@ -1,5 +1,5 @@
 // Module/Vehicles/Vehicles.pwn
-// He thong xe: du lieu xe, spawn. Persist MySQL se lam o phase Vehicles.
+// He thong xe: du lieu xe, spawn. Persist database se lam o phase Vehicles.
 
 stock Vehicle_Init()
 {
@@ -31,7 +31,7 @@ stock Vehicle_Init()
 stock Vehicle_LoadAll()
 {
     TotalVehicles = 0;
-    print("[Vehicles] MySQL load xe chua migrate, bo qua vehicle persistence.");
+    print("[Vehicles] Database load xe chua migrate, bo qua vehicle persistence.");
     return 1;
 }
 

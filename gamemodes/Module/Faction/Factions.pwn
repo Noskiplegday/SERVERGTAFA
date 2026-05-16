@@ -47,7 +47,7 @@ stock Faction_Create(const name[], id, Float:x, Float:y, Float:z)
 stock Faction_LoadAll()
 {
     TotalFactions = 0;
-    print("[Faction] MySQL load factions chua migrate, dung default factions.");
+    print("[Faction] Database load factions chua migrate, dung default factions.");
     return 1;
 }
 

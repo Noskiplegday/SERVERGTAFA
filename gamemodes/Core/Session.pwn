@@ -9,9 +9,16 @@ stock Session_Reset(playerid)
     PlayerData[playerid][pName][0] = EOS;
     PlayerData[playerid][pPassword][0] = EOS;
     PlayerData[playerid][pEmail][0] = EOS;
+    PlayerData[playerid][pCCCD][0] = EOS;
+    PlayerData[playerid][pRole][0] = EOS;
+    PlayerData[playerid][pMission][0] = EOS;
+    PlayerData[playerid][pFamilyCCCD][0] = EOS;
+    PlayerData[playerid][pFamilyRelation][0] = EOS;
     PlayerData[playerid][pRegUsername][0] = EOS;
     PlayerData[playerid][pRegPassword][0] = EOS;
     PlayerData[playerid][pRegEmail][0] = EOS;
+    PlayerData[playerid][pRegFamilyCCCD][0] = EOS;
+    PlayerData[playerid][pRegFamilyRelation][0] = EOS;
     PlayerData[playerid][pLoginUsername][0] = EOS;
     PlayerData[playerid][pLoginAttempts] = 0;
     PlayerData[playerid][pSaveTimerID] = 0;
@@ -19,6 +26,7 @@ stock Session_Reset(playerid)
     PlayerData[playerid][pJailTimerID] = 0;
     PlayerData[playerid][pHungerTimerID] = 0;
     PlayerData[playerid][pJobTimerID] = 0;
+    PlayerData[playerid][pHudTimerID] = 0;
     PlayerData[playerid][pCallingTo] = INVALID_PLAYER_ID;
     PlayerData[playerid][pInCall] = false;
     PlayerData[playerid][pOnJob] = false;
@@ -34,6 +42,8 @@ stock Session_Login(playerid)
     PlayerData[playerid][pSaveTimerID] = SetTimerEx("Session_AutoSave", gAutoSaveInterval * 1000, true, "i", playerid);
     PlayerData[playerid][pPaycheckTimerID] = SetTimerEx("Session_Paycheck", gPaycheckInterval * 1000, true, "i", playerid);
     PlayerData[playerid][pHungerTimerID] = SetTimerEx("Session_HungerThirst", 60000, true, "i", playerid);
+    PlayerData[playerid][pHudTimerID] = SetTimerEx("HUD_Tick", 2000, true, "i", playerid);
+    HUD_Show(playerid);
     return 1;
 }
 
@@ -69,6 +79,12 @@ stock Session_Cleanup(playerid)
         KillTimer(PlayerData[playerid][pJobTimerID]);
         PlayerData[playerid][pJobTimerID] = 0;
     }
+    if(PlayerData[playerid][pHudTimerID])
+    {
+        KillTimer(PlayerData[playerid][pHudTimerID]);
+        PlayerData[playerid][pHudTimerID] = 0;
+    }
+    HUD_Hide(playerid);
     Session_Reset(playerid);
     return 1;
 }
